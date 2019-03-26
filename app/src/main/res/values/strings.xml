@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">TrustChain Android</string>
+    <string name="my_external_ip">My external ip is:</string>
+    <string name="connect_bootstrap_ip">The IP address of a peer:</string>
+    <string name="change_bootstrap">Find peer</string>
+    <string name="connect_bootstrap_ip_hint">145.94.155.32</string>
+    <string name="my_local_ip">My local ip is:</string>
+    <string name="connect_ip_hint">127.0.0.1</string>
+    <string name="connect_port_hint">port</string>
+    <string name="default_port">8080</string>
+    <string name="connect_to">Connect to IP</string>
+    <string name="connect">connect</string>
+    <string name="view_chain">View Chain</string>
+    <string name="reset_database_button">Clear Database (closes app)</string>
+    <string name="connection_info_text">Info</string>
+
+    <!-- Trustchain -->
+    <string name="title_activity_key">Key management</string>
+    <string name="bluetooth_connection">bluetooth_connection</string>
+    <string name="public_key">Public key</string>
+    <string name="private_key">Private key</string>
+    <string name="create_key">Create new key</string>
+    <string name="show_key">Show key</string>
+    <string name="verify_sig">Verify signature</string>
+    <string name="storage_permission_explanation">Give permission for storage!</string>
+    <string name="sign_data">Sign data!</string>
+    <string name="valid_signature">Valid signature</string>
+    <string name="invalid_signature">Invalid signature</string>
+    <string name="chain_explorer">TrustChain Explorer</string>
+    <string name="title_activity_bluetooth">BluetoothActivity</string>
+    <string name="sign_block">Sign this block</string>
+
+    <string name="item_public_key">Public key:</string>
+    <string name="item_link_public_key">Link public key:</string>
+    <string name="item_prev_hash">Previous hash:</string>
+    <string name="item_signature">Signature:</string>
+    <string name="item_transaction">Transaction:</string>
+
+    <string name="bluetooth_explanation">First pair with a device via the Android bluetooth manager. After the two devices are paired press on the desired device to initiate a connection.</string>
+    <string name="bluetooth_button">Bluetooth</string>
+    <string name="qr_scan_button">Scan QR</string>
+    <string name="camera_permissions_required">Camera permissions required</string>
+    <string name="camera_permisions_required_long">To scan QR codes, the application needs permission to access the camera.</string>
+    <string name="current_funds">Current Funds</string>
+
+    <string name="send">Send</string>
+    <string name="developer_mode">Developer Mode</string>
+
+    <!-- Menu -->
+    <string name="menu_item_1">My Chain</string>
+    <string name="menu_item_2">Clear Entire Inbox</string>
+    <string name="menu_info">Info</string>
+    <string name="find_peer">Find peer</string>
+
+    <!--- app to app strings -->
+    <string name="start_connection">Attempt connection</string>
+    <string name="local_ip">Local IP</string>
+    <string name="start_server_connection">Start server connection</string>
+    <string name="client_socket">Client socket</string>
+    <string name="server_socket">Server socket</string>
+    <string name="stop_server">Stop server</string>
+    <string name="close_connection">Delete All</string>
+    <string name="pex_handshake_id">PEX handshake ID:</string>
+    <string name="circle_symbol">●</string>
+    <string name="indicator_symbol">▂</string>
+    <string name="peer_id">Peer ID</string>
+    <string name="unknown">unknown</string>
+    <string name="wan_address">WAN Address</string>
+    <string name="ip">ip</string>
+    <string name="incoming">Incoming</string>
+    <string name="outgoing">outgoing</string>
+    <string name="left_connections">Active Peers</string>
+    <string name="right_connections">New Peers</string>
+    <string name="connection">Connection</string>
+    <string name="connectable_ratio">Connectable\nratio</string>
+    <string name="connectable_peers">Connectable\nPeers</string>
+    <string name="active_peers">Active\nPeers</string>
+    <string name="exit_prompt">Exit</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_info_chain_explorer">UserActivity</string>
+
+    <!-- Connection explanation view -->
+    <string name="symbolMeaningText">Meaning:</string>
+    <string name="connectionInfoText">Here we provide an explanation of each symbol and their corresponding color.</string>
+    <string name="symbolExplanationText">Explanation</string>
+
+    <!--- info chain explorer -->
+    <string name="color_info">Color is based on the hash of the public key.</string>
+
+    <!--- inbox -->
+    <string name="new_user">+ Find new users</string>
+    <string name="inbox">Open Inbox</string>
+
+    <string name="import_tokens">Import Tokens</string>
+    <string name="export_tokens">Export Tokens</string>
+    <string name="funds">Funds</string>
+    <string name="transactions">Transactions</string>
+</resources>
