@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">TrustChainProject</string>
     <string name="action_settings">Settings</string>
+
+    <!--Fingerprint-->
+    <string name="auth_text">Fingerprint Authentication</string>
+    <string name="auth_instructions">Place your fingertip on the Home button to verify your identity</string>
+    <!--End Fingerprint-->
 </resources>
