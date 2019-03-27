@@ -29,16 +29,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        Connection con = null;
-        try {
-            con = DriverManager.getConnection
-                    ("jdbc:mysql://localhost/studielink", "root", "root");
-            System.out.println("yeet skeet delete");
-            System.out.println(con);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
 
 //        super.onCreate(savedInstanceState);
 //        context = this;
@@ -60,11 +50,9 @@ public class MainActivity extends AppCompatActivity {
 //        }
     }
 
-    /**
-     * When clicking the confirm button check if the user name is not empty
-     * if so then store the username and continue to the next activity.
-     */
     public void OnClickConfirm(View view) {
+        Intent i = new Intent(this, FingerprintAuthActivity.class);
+        this.startActivity(i);
 
 
 //        EditText userNameInput = findViewById(R.id.username);
@@ -84,12 +72,9 @@ public class MainActivity extends AppCompatActivity {
 //        }
     }
 
-    /**
-     * Hide the keyboard when the focus is not on the input field.
-     * @param view the view that contains the input field.
-     */
-    public void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
+
+//    public void hideKeyboard(View view) {
+//        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+//        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+//    }
 }

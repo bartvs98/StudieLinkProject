@@ -25,6 +25,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Main.FingerprintAuthActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name=".Main.DashboardActivity"
             android:label="@string/app_name" >
         </activity>
