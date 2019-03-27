@@ -20,7 +20,7 @@ public class DashboardActivity extends AppCompatActivity {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection
-                    ("jdbc:mysql://10.0.2.2:3306/stock", "root", "root");
+                    ("jdbc:mysql://localhost/studielink", "root", "root");
         }
         catch (Exception e){
             e.printStackTrace();

@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import com.example.trustchainproject.R;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public class MainActivity extends AppCompatActivity {
     Context context;
 
@@ -26,6 +29,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection
+                    ("jdbc:mysql://localhost/studielink", "root", "root");
+            System.out.println("yeet skeet delete");
+            System.out.println(con);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
 //        super.onCreate(savedInstanceState);
 //        context = this;
