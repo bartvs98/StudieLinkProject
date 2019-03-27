@@ -2,6 +2,7 @@ package com.example.trustchainproject.Handlers;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.Manifest;
@@ -10,6 +11,7 @@ import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
+import com.example.trustchainproject.Main.DashboardActivity;
 import com.example.trustchainproject.Main.MainActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
@@ -49,6 +51,8 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         Toast.makeText(context, "Success!", Toast.LENGTH_LONG).show();
+        Intent i = new Intent(context, DashboardActivity.class);
+        context.startActivity(i);
     }
 
 }
