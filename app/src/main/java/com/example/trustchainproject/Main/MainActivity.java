@@ -74,10 +74,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onSucceed() {
-        setContentView(R.layout.content_main);
-    }
-
     private void generateKey() throws FingerprintException {
         try {
             keyStore = KeyStore.getInstance("AndroidKeyStore");
