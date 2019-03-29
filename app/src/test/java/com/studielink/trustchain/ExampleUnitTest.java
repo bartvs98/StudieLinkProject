@@ -1,4 +1,4 @@
-package com.example.trustchainproject;
+package com.studielink.trustchain;
 
 import org.junit.Test;
 

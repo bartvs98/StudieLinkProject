@@ -1,18 +1,17 @@
-package com.example.trustchainproject.Handlers;
+package com.studielink.trustchain.Handlers;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
-import android.Manifest;
 import android.os.Build;
 import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
-import com.example.trustchainproject.Main.DashboardActivity;
-import com.example.trustchainproject.Main.MainActivity;
+import com.studielink.trustchain.DashboardActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {

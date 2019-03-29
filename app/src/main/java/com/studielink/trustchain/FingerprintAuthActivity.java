@@ -1,4 +1,4 @@
-package com.example.trustchainproject.Main;
+package com.studielink.trustchain;
 
 import android.app.KeyguardManager;
 import android.content.pm.PackageManager;
@@ -13,8 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.ActivityCompat;
 import android.widget.TextView;
 
-import com.example.trustchainproject.Handlers.FingerprintHandler;
-import com.example.trustchainproject.R;
+import com.studielink.trustchain.Handlers.FingerprintHandler;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
