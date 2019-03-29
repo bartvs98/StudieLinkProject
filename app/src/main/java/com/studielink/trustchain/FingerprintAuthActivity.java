@@ -51,11 +51,21 @@ public class FingerprintAuthActivity extends AppCompatActivity {
 
             textView = (TextView) findViewById(R.id.messageText);
 
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED) {
+            if (!fingerprintManager.isHardwareDetected()) {
+                textView.setText("Your device doesn't support fingerprint authentication");
+            }
+
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
                 textView.setText("Please enable the fingerprint permission");
             }
 
-            if (!keyguardManager.isKeyguardSecure()) {
+            //Check that the user has registered at least one fingerprint//
+            if (!fingerprintManager.hasEnrolledFingerprints()) {
+                textView.setText("No fingerprint configured. Please register at least one fingerprint in your device's Settings");
+            }
+
+                if (!keyguardManager.isKeyguardSecure()) {
                 textView.setText("Please enable lockscreen security in your device's Settings");
             } else {
                 try {
