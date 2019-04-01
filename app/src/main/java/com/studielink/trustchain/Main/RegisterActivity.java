@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         userMsg = findViewById(R.id.userMsg);
 
-        if (!username.matches("")) {
+        if (!username.matches("") && !password.matches("")) {
             digiDMockService = new DigiDMockService(this);
 
             if (digiDMockService.checkExsitance(username, password)) {
@@ -67,6 +67,8 @@ public class RegisterActivity extends AppCompatActivity {
             } else {
                 userMsg.setText("Credentials incorrect.");
             }
+        } else {
+            userMsg.setText("Please fill the fields");
         }
     }
 }
