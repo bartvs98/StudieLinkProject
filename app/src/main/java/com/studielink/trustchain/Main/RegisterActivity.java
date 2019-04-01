@@ -8,14 +8,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.studielink.trustchain.Mock.DigiDMockService;
 import com.studielink.trustchain.R;
 import com.studielink.trustchain.SharedPreferences.UserNameStorage;
+import com.studielink.trustchain.Storage.Account;
 import com.studielink.trustchain.Storage.AccountStorage;
 
 public class RegisterActivity extends AppCompatActivity {
     Context context;
+    DigiDMockService digiDMockService;
     AccountStorage accountStorage;
+    private TextView userMsg;
 
     /**
      * Checks if there is already a username set in the past.
@@ -30,15 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (UserNameStorage.getUserName(this) == null) {
             setContentView(R.layout.register_activity);
-            EditText userNameInput = findViewById(R.id.username);
-            userNameInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (!hasFocus) {
-                        hideKeyboard(v);
-                    }
-                }
-            });
         } else {
             Intent myIntent = new Intent(this, FingerprintAuthActivity.class);
             myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -48,26 +44,29 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void OnClickConfirm(View view) {
-        EditText userNameInput = findViewById(R.id.username);
+        EditText usernameInput = findViewById(R.id.username);
+        EditText passwordInput = findViewById(R.id.password);
+        String username = usernameInput.getText().toString();
+        String password = passwordInput.getText().toString();
 
-        if (!userNameInput.getText().toString().matches("")) {
-            Intent myIntent = new Intent(this, FingerprintAuthActivity.class);
-            UserNameStorage.setUserName(context, userNameInput.getText().toString());
+        userMsg = findViewById(R.id.userMsg);
 
-            accountStorage = new AccountStorage(this);
-            accountStorage.insert(userNameInput.getText().toString());
+        if (!username.matches("")) {
+            digiDMockService = new DigiDMockService(this);
 
-            myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            this.startActivity(myIntent);
+            if (digiDMockService.checkExsitance(username, password)) {
+                UserNameStorage.setUserName(context, username);
+
+                Account loginResult = digiDMockService.getAccountInfo(username);
+                accountStorage = new AccountStorage(this);
+                accountStorage.insert(loginResult);
+
+                Intent myIntent = new Intent(this, FingerprintAuthActivity.class);
+                myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                this.startActivity(myIntent);
+            } else {
+                userMsg.setText("Credentials incorrect.");
+            }
         }
-    }
-
-    /**
-     * Hide the keyboard when the focus is not on the input field.
-     * @param view the view that contains the input field.
-     */
-    public void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

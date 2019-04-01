@@ -59,6 +59,7 @@
 
             <RelativeLayout
                 android:layout_below="@+id/usernameWrapper"
+                android:id="@+id/passwordWrapper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp">
@@ -78,7 +79,25 @@
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
                     android:imeOptions="actionDone"
+                    android:inputType="textPassword"
                     android:singleLine="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_below="@+id/passwordWrapper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp">
+
+                <TextView
+                    android:id="@+id/userMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:textColor="@android:color/black"
+                    android:text=""
+                    />
 
             </RelativeLayout>
 

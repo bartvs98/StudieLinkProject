@@ -51,7 +51,7 @@ public class FingerprintAuthActivity extends AppCompatActivity {
             keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
             fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
 
-            textView = (TextView) findViewById(R.id.messageText);
+            textView = findViewById(R.id.messageText);
 
             if (!fingerprintManager.isHardwareDetected()) {
                 textView.setText("Your device doesn't support fingerprint authentication");
