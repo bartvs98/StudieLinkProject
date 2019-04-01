@@ -11,7 +11,7 @@ import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
-import com.studielink.trustchain.DashboardActivity;
+import com.studielink.trustchain.Main.DashboardActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {

@@ -1,19 +1,18 @@
-package com.studielink.trustchain;
+package com.studielink.trustchain.Main;
 
 import android.app.KeyguardManager;
-import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
-import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v4.app.ActivityCompat;
 import android.widget.TextView;
 
 import com.studielink.trustchain.Handlers.FingerprintHandler;
+import com.studielink.trustchain.R;
+import com.studielink.trustchain.Storage.AccountStorage;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -39,13 +38,16 @@ public class FingerprintAuthActivity extends AppCompatActivity {
     private FingerprintManager fingerprintManager;
     private KeyguardManager keyguardManager;
 
+    AccountStorage accountStorage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fingerprint_auth);
 
+        accountStorage = new AccountStorage(this);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //Get an instance of KeyguardManager and FingerprintManager//
             keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
             fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
 
@@ -55,12 +57,6 @@ public class FingerprintAuthActivity extends AppCompatActivity {
                 textView.setText("Your device doesn't support fingerprint authentication");
             }
 
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
-                textView.setText("Please enable the fingerprint permission");
-            }
-
-            //Check that the user has registered at least one fingerprint//
             if (!fingerprintManager.hasEnrolledFingerprints()) {
                 textView.setText("No fingerprint configured. Please register at least one fingerprint in your device's Settings");
             }
