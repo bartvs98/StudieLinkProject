@@ -24,14 +24,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="12dp"
-                android:text="Username:" />
+                android:text="Username: " />
 
             <TextView
                 android:id="@+id/usernameData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="asdf" />
+                android:text="" />
 
         </LinearLayout>
 
@@ -43,14 +42,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="39dp"
-                android:text="Name:" />
+                android:text="Name: " />
 
             <TextView
                 android:id="@+id/nameData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="asdf" />
+                android:text="" />
 
         </LinearLayout>
 
@@ -62,14 +60,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="54dp"
-                android:text="age:" />
+                android:text="age: " />
 
             <TextView
                 android:id="@+id/ageData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="asdf" />
+                android:text="" />
 
         </LinearLayout>
 
