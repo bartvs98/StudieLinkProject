@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
 import com.studielink.trustchain.Main.DashboardActivity;
+import com.studielink.trustchain.Main.OverviewConnectionsActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
@@ -51,7 +52,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         Toast.makeText(context, "Success!", Toast.LENGTH_LONG).show();
-        Intent i = new Intent(context, DashboardActivity.class);
+        Intent i = new Intent(context, OverviewConnectionsActivity.class);
         context.startActivity(i);
     }
 
