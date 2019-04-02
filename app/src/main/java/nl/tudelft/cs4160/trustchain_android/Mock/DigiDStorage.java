@@ -39,6 +39,8 @@ public class DigiDStorage extends SQLiteOpenHelper {
 
         insert(db,"bartvs98", "admin01", "Bart", "van Straaten", 20);
         insert(db,"thomas99", "admin01", "Thomas", "Mocellin", 19);
+        insert(db, "owen98", "admin01", "Owen", "Ashby", 21);
+        insert(db, "raoul95", "admin01", "Raoul", "Eskens", 24);
     }
 
     @Override
