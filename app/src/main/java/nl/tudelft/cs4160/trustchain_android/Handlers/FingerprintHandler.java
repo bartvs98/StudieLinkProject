@@ -11,7 +11,6 @@ import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
-import nl.tudelft.cs4160.trustchain_android.main.DashboardActivity;
 import nl.tudelft.cs4160.trustchain_android.main.OverviewConnectionsActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
