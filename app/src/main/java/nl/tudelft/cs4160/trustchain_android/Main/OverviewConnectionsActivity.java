@@ -54,6 +54,9 @@ import nl.tudelft.cs4160.trustchain_android.Crypto.Key;
 import nl.tudelft.cs4160.trustchain_android.Storage.TrustChainDBHelper;
 import nl.tudelft.cs4160.trustchain_android.Inbox.InboxActivity;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
+import nl.tudelft.cs4160.trustchain_android.funds.FundsActivity;
+import nl.tudelft.cs4160.trustchain_android.qr.ExportWalletQRActivity;
+import nl.tudelft.cs4160.trustchain_android.qr.ScanQRActivity;
 
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.GENESIS_SEQ;
 
@@ -112,6 +115,15 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
             case R.id.connection_explanation_menu:
                 Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
                 startActivity(ConnectionExplanationActivity);
+                return true;
+            case R.id.import_tokens:
+                startActivity(new Intent(OverviewConnectionsActivity.this, ScanQRActivity.class));
+                return true;
+            case R.id.export_tokens:
+                startActivity(new Intent(OverviewConnectionsActivity.this, ExportWalletQRActivity.class));
+                return true;
+            case R.id.funds:
+                startActivity(new Intent(this, FundsActivity.class));
                 return true;
             case R.id.find_peer:
                 Intent bootstrapActivity = new Intent(this, BootstrapActivity.class);
