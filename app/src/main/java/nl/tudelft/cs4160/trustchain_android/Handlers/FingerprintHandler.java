@@ -11,7 +11,7 @@ import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
-import nl.tudelft.cs4160.trustchain_android.main.OverviewConnectionsActivity;
+import nl.tudelft.cs4160.trustchain_android.Main.OverviewConnectionsActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
@@ -51,8 +51,9 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         Toast.makeText(context, "Success!", Toast.LENGTH_LONG).show();
-        Intent i = new Intent(context, OverviewConnectionsActivity.class);
-        context.startActivity(i);
+        Intent myIntent = new Intent(context, OverviewConnectionsActivity.class);
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(myIntent);
     }
 
 }

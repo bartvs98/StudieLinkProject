@@ -5,7 +5,6 @@
         android:id="@+id/chain_menu"
         android:title="@string/menu_item_1"
         app:showAsAction="never"/>
-
     <item
         android:id="@+id/connection_explanation_menu"
         android:title="@string/connection_info_text"
@@ -13,20 +12,5 @@
     <item
         android:id="@+id/find_peer"
         android:title="@string/find_peer"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/funds"
-        android:title="@string/funds"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/import_tokens"
-        android:title="@string/import_tokens"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/export_tokens"
-        android:title="@string/export_tokens"
         app:showAsAction="never" />
 </menu>

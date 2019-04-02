@@ -4,8 +4,8 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import nl.tudelft.cs4160.trustchain_android.main.MutualBlockItem;
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import nl.tudelft.cs4160.trustchain_android.Main.MutualBlockItem;
+import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 
 import static org.junit.Assert.assertNotEquals;
 

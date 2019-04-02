@@ -3,16 +3,16 @@ package nl.tudelft.cs4160.trustchain_android.Network;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerHandler;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.BlockMessage;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.CrawlRequest;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionRequest;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionResponse;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Message;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.MessageException;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Puncture;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.PunctureRequest;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.PeerAppToApp;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.PeerHandler;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.BlockMessage;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.CrawlRequest;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.IntroductionRequest;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.IntroductionResponse;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Message;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.MessageException;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Puncture;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.PunctureRequest;
 
 public interface NetworkCommunicationListener {
     void updateInternalSourceAddress(String address);

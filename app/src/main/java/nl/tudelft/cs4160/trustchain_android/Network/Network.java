@@ -23,22 +23,22 @@ import nl.tudelft.cs4160.trustchain_android.SharedPreferences.InboxItemStorage;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.PubKeyAndAddressPairStorage;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
 import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.BlockMessage;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.CrawlRequest;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionRequest;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionResponse;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Message;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.MessageException;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Puncture;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.PunctureRequest;
-import nl.tudelft.cs4160.trustchain_android.bencode.BencodeReadException;
-import nl.tudelft.cs4160.trustchain_android.crypto.Key;
-import nl.tudelft.cs4160.trustchain_android.inbox.InboxItem;
-import nl.tudelft.cs4160.trustchain_android.main.OverviewConnectionsActivity;
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.PeerAppToApp;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.BlockMessage;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.CrawlRequest;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.IntroductionRequest;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.IntroductionResponse;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Message;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.MessageException;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Puncture;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.PunctureRequest;
+import nl.tudelft.cs4160.trustchain_android.Bencode.BencodeReadException;
+import nl.tudelft.cs4160.trustchain_android.Crypto.Key;
+import nl.tudelft.cs4160.trustchain_android.Inbox.InboxItem;
+import nl.tudelft.cs4160.trustchain_android.Main.OverviewConnectionsActivity;
+import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 
-import static nl.tudelft.cs4160.trustchain_android.message.MessageProto.Message.newBuilder;
+import static nl.tudelft.cs4160.trustchain_android.Message.MessageProto.Message.newBuilder;
 
 public class Network {
     private final String TAG = this.getClass().getName();
