@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.appToApp.connection;
+package nl.tudelft.cs4160.trustchain_android.AppToApp.connection;
 
 /**
  * Created by timbu on 15/01/2018.

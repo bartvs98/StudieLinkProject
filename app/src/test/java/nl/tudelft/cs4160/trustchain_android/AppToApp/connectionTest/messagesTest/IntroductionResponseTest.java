@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.appToApp.connectionTest.messagesTest;
+package nl.tudelft.cs4160.trustchain_android.AppToApp.connectionTest.messagesTest;
 
 /**
  * Created by michiel on 27-1-2018.
@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionRequest;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionResponse;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Message;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.MessageException;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.PeerAppToApp;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.IntroductionRequest;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.IntroductionResponse;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Message;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.MessageException;
 
 import static org.junit.Assert.assertEquals;
 

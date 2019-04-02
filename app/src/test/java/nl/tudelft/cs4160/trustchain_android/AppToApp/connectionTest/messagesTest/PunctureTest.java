@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.appToApp.connectionTest.messagesTest;
+package nl.tudelft.cs4160.trustchain_android.AppToApp.connectionTest.messagesTest;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -7,9 +7,9 @@ import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.Map;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Message;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.MessageException;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Puncture;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Message;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.MessageException;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Puncture;
 
 import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;

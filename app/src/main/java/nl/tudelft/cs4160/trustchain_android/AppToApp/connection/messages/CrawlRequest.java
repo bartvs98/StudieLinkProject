@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages;
+package nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 
@@ -6,7 +6,7 @@ import java.net.InetSocketAddress;
 import java.util.Map;
 
 import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 
 /**
  * Created by Boning on 1/18/2018.

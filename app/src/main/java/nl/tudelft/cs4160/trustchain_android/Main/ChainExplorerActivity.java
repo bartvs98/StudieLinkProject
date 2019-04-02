@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.ChainExplorer;
+package nl.tudelft.cs4160.trustchain_android.Main;
 
 import android.content.Intent;
 import android.os.Build;
@@ -28,7 +28,6 @@ import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
 import nl.tudelft.cs4160.trustchain_android.Crypto.DualSecret;
 import nl.tudelft.cs4160.trustchain_android.Crypto.Key;
 import nl.tudelft.cs4160.trustchain_android.Storage.TrustChainDBHelper;
-import nl.tudelft.cs4160.trustchain_android.Main.ChainExplorerInfoActivity;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 
 import static android.view.Gravity.CENTER;

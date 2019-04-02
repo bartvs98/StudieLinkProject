@@ -5,6 +5,8 @@ import com.google.protobuf.ByteString;
 
 import java.util.HashMap;
 
+import nl.tudelft.cs4160.trustchain_android.Main.ChainExplorerAdapter;
+
 public class ChainExplorerAdapterTest {
     private static final ByteString PEER_2_PEER = ByteString.copyFromUtf8("peer2peer");
     private ChainExplorerAdapter adapter = new ChainExplorerAdapter(null, null, new byte[0]);

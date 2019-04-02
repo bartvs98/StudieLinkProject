@@ -29,7 +29,7 @@
             android:name=".Main.TrustChainActivity"
             android:configChanges="orientation|screenLayout|screenSize"
             android:windowSoftInputMode="stateUnchanged" />
-        <activity android:name=".ChainExplorer.ChainExplorerActivity" />
+        <activity android:name=".Main.ChainExplorerActivity" />
         <activity android:name=".Main.ConnectionExplanationActivity" />
         <activity
             android:name=".Main.OverviewConnectionsActivity"

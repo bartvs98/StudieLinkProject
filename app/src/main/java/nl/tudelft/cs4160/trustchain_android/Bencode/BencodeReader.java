@@ -10,7 +10,7 @@
  *
  * You must not remove this notice, or any other, from this software.
  */
-package nl.tudelft.cs4160.trustchain_android.bencode;
+package nl.tudelft.cs4160.trustchain_android.Bencode;
 
 import java.io.Closeable;
 import java.io.EOFException;

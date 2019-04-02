@@ -11,9 +11,9 @@ import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.Map;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionRequest;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Message;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.MessageException;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.IntroductionRequest;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Message;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.MessageException;
 
 import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;

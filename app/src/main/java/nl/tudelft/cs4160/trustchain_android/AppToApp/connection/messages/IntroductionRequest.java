@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages;
+package nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages;
 
 import java.net.InetSocketAddress;
 import java.util.Map;

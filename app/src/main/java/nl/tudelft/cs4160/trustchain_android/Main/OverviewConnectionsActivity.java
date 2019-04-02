@@ -49,7 +49,6 @@ import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Message
 import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Puncture;
 import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.PunctureRequest;
 import nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper;
-import nl.tudelft.cs4160.trustchain_android.ChainExplorer.ChainExplorerActivity;
 import nl.tudelft.cs4160.trustchain_android.Crypto.DualSecret;
 import nl.tudelft.cs4160.trustchain_android.Crypto.Key;
 import nl.tudelft.cs4160.trustchain_android.Storage.TrustChainDBHelper;

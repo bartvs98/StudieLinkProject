@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.ChainExplorer;
+package nl.tudelft.cs4160.trustchain_android.Main;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +20,6 @@ import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
 import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
 import nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper;
-import nl.tudelft.cs4160.trustchain_android.Main.ChainColor;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 
 public class ChainExplorerAdapter extends BaseAdapter {

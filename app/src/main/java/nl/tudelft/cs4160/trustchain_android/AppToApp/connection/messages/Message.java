@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages;
+package nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages;
 
 import android.util.Log;
 
@@ -10,12 +10,12 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.ByteBufferOutputStream;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.ByteBufferinputStream;
-import nl.tudelft.cs4160.trustchain_android.bencode.BencodeReadException;
-import nl.tudelft.cs4160.trustchain_android.bencode.BencodeReader;
-import nl.tudelft.cs4160.trustchain_android.bencode.BencodeWriter;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.PeerAppToApp;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.ByteBufferOutputStream;
+import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.ByteBufferinputStream;
+import nl.tudelft.cs4160.trustchain_android.Bencode.BencodeReadException;
+import nl.tudelft.cs4160.trustchain_android.Bencode.BencodeReader;
+import nl.tudelft.cs4160.trustchain_android.Bencode.BencodeWriter;
 
 /**
  * Created by jaap on 5/31/16.
