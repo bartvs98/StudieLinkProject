@@ -25,11 +25,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity
-            android:name="$Main.RegisterActivity"
+            android:name=".Main.RegisterActivity"
             android:label="@string/app_name"
             android:noHistory="true"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,28 +41,52 @@
         </activity>
 
         <activity
-            android:name="$Main.TrustChainActivity"
+            android:name=".Main.TrustChainActivity"
             android:configChanges="orientation|screenLayout|screenSize"
-            android:windowSoftInputMode="stateUnchanged" />
-        <activity android:name="$Main.ChainExplorerActivity" />
-        <activity android:name="$Main.ConnectionExplanationActivity" />
+            android:windowSoftInputMode="stateUnchanged"
+            tools:ignore="InnerclassSeparator" />
         <activity
-            android:name="$Main.OverviewConnectionsActivity"
-            android:configChanges="orientation|screenLayout|screenSize" />
+            android:name=".Main.ChainExplorerActivity"
+            tools:ignore="InnerclassSeparator" />
 
         <activity
-            android:name="$Main.FingerprintAuthActivity"
-            android:noHistory="true" />
-        <activity android:name="$QR.ScanQRActivity" />
-        <activity android:name="$QR.ExportWalletQRActivity" />
-        <activity android:name="$Funds.FundsActivity" />
+            android:name=".Main.ConnectionExplanationActivity"
+            tools:ignore="InnerclassSeparator" />
+
         <activity
-            android:name="$Main.ChainExplorerInfoActivity"
-            android:label="@string/title_activity_info_chain_explorer" />
+            android:name=".Main.OverviewConnectionsActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            tools:ignore="InnerclassSeparator" />
+
         <activity
-            android:name="$Main.BootstrapActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name="$Inbox.InboxActivity"/>
+            android:name=".Main.FingerprintAuthActivity"
+            android:noHistory="true"
+            tools:ignore="InnerclassSeparator" />
+
+        <activity
+            android:name=".QR.ScanQRActivity"
+            tools:ignore="InnerclassSeparator" />
+
+        <activity
+            android:name=".QR.ExportWalletQRActivity"
+            tools:ignore="InnerclassSeparator" />
+
+        <activity
+            android:name=".Funds.FundsActivity"
+            tools:ignore="InnerclassSeparator" />
+
+        <activity
+            android:name=".Main.ChainExplorerInfoActivity"
+            android:label="@string/title_activity_info_chain_explorer"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Main.BootstrapActivity"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="InnerclassSeparator" />
+
+        <activity
+            android:name=".Inbox.InboxActivity"
+            tools:ignore="InnerclassSeparator" />
     </application>
 
 </manifest>
