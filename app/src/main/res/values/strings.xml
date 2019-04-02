@@ -96,4 +96,6 @@
     <string name="export_tokens">Export Tokens</string>
     <string name="funds">Funds</string>
     <string name="transactions">Transactions</string>
+
+    <string name="auth_instructions">Place your fingertip on the Home button to verify your identity</string>
 </resources>
