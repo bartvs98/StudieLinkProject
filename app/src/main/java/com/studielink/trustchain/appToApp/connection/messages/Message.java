@@ -10,12 +10,12 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.ByteBufferOutputStream;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.ByteBufferinputStream;
-import nl.tudelft.cs4160.trustchain_android.bencode.BencodeReadException;
-import nl.tudelft.cs4160.trustchain_android.bencode.BencodeReader;
-import nl.tudelft.cs4160.trustchain_android.bencode.BencodeWriter;
+import com.studielink.trustchain.appToApp.PeerAppToApp;
+import com.studielink.trustchain.appToApp.connection.ByteBufferOutputStream;
+import com.studielink.trustchain.appToApp.connection.ByteBufferinputStream;
+import com.studielink.trustchain.bencode.BencodeReadException;
+import com.studielink.trustchain.bencode.BencodeReader;
+import com.studielink.trustchain.bencode.BencodeWriter;
 
 /**
  * Created by jaap on 5/31/16.

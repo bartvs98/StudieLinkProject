@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import nl.tudelft.cs4160.trustchain_android.R;
+import com.studielink.trustchain.R;
 
 public class ConnectionExplanationActivity extends AppCompatActivity {
 

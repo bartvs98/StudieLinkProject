@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.PeerListener;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.WanVote;
+import com.studielink.trustchain.appToApp.connection.PeerListener;
+import com.studielink.trustchain.appToApp.connection.WanVote;
 
 public class PeerHandler {
     private final ReentrantLock peerListLock = new ReentrantLock();

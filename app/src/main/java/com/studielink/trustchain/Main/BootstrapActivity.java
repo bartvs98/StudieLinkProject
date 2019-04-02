@@ -12,8 +12,8 @@ import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 
-import nl.tudelft.cs4160.trustchain_android.R;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.BootstrapIPStorage;
+import com.studielink.trustchain.R;
+import com.studielink.trustchain.SharedPreferences.BootstrapIPStorage;
 
 public class BootstrapActivity extends AppCompatActivity {
     private EditText bootstrapView;

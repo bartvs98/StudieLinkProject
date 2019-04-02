@@ -5,8 +5,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import java.net.InetSocketAddress;
 import java.util.Map;
 
-import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import com.studielink.trustchain.Util.ByteArrayConverter;
+import com.studielink.trustchain.message.MessageProto;
 
 /**
  * Created by Boning on 1/18/2018.

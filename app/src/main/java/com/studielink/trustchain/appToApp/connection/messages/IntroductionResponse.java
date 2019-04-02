@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
+import com.studielink.trustchain.appToApp.PeerAppToApp;
 
 
 public class IntroductionResponse extends Message {

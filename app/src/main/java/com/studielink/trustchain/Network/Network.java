@@ -19,26 +19,26 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.InboxItemStorage;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.PubKeyAndAddressPairStorage;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
-import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.BlockMessage;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.CrawlRequest;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionRequest;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.IntroductionResponse;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Message;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.MessageException;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.Puncture;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.PunctureRequest;
-import nl.tudelft.cs4160.trustchain_android.bencode.BencodeReadException;
-import nl.tudelft.cs4160.trustchain_android.crypto.Key;
-import nl.tudelft.cs4160.trustchain_android.inbox.InboxItem;
-import nl.tudelft.cs4160.trustchain_android.main.OverviewConnectionsActivity;
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import com.studielink.trustchain.SharedPreferences.InboxItemStorage;
+import com.studielink.trustchain.SharedPreferences.PubKeyAndAddressPairStorage;
+import com.studielink.trustchain.SharedPreferences.UserNameStorage;
+import com.studielink.trustchain.Util.ByteArrayConverter;
+import com.studielink.trustchain.appToApp.PeerAppToApp;
+import com.studielink.trustchain.appToApp.connection.messages.BlockMessage;
+import com.studielink.trustchain.appToApp.connection.messages.CrawlRequest;
+import com.studielink.trustchain.appToApp.connection.messages.IntroductionRequest;
+import com.studielink.trustchain.appToApp.connection.messages.IntroductionResponse;
+import com.studielink.trustchain.appToApp.connection.messages.Message;
+import com.studielink.trustchain.appToApp.connection.messages.MessageException;
+import com.studielink.trustchain.appToApp.connection.messages.Puncture;
+import com.studielink.trustchain.appToApp.connection.messages.PunctureRequest;
+import com.studielink.trustchain.bencode.BencodeReadException;
+import com.studielink.trustchain.crypto.Key;
+import com.studielink.trustchain.inbox.InboxItem;
+import com.studielink.trustchain.main.OverviewConnectionsActivity;
+import com.studielink.trustchain.message.MessageProto;
 
-import static nl.tudelft.cs4160.trustchain_android.message.MessageProto.Message.newBuilder;
+import static com.studielink.trustchain.message.MessageProto.Message.newBuilder;
 
 public class Network {
     private final String TAG = this.getClass().getName();

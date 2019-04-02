@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import nl.tudelft.cs4160.trustchain_android.R;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
-import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
-import nl.tudelft.cs4160.trustchain_android.color.ChainColor;
-import nl.tudelft.cs4160.trustchain_android.crypto.DualSecret;
-import nl.tudelft.cs4160.trustchain_android.crypto.Key;
+import com.studielink.trustchain.R;
+import com.studielink.trustchain.SharedPreferences.UserNameStorage;
+import com.studielink.trustchain.Util.ByteArrayConverter;
+import com.studielink.trustchain.color.ChainColor;
+import com.studielink.trustchain.crypto.DualSecret;
+import com.studielink.trustchain.crypto.Key;
 
 public class MutualBlockAdapter extends RecyclerView.Adapter<MutualBlockAdapter.ViewHolder> {
 

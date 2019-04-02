@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import nl.tudelft.cs4160.trustchain_android.crypto.DualSecret;
-import nl.tudelft.cs4160.trustchain_android.crypto.Key;
+import com.studielink.trustchain.crypto.DualSecret;
+import com.studielink.trustchain.crypto.Key;
 
 public class KeyActivity extends AppCompatActivity {
 

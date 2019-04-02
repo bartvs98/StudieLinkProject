@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
+import com.studielink.trustchain.appToApp.PeerAppToApp;
 
 public class InboxItem implements Serializable {
     private String userName;

@@ -2,9 +2,9 @@ package com.studielink.trustchain.Network;
 
 import java.io.IOException;
 
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.BlockMessage;
-import nl.tudelft.cs4160.trustchain_android.appToApp.connection.messages.MessageException;
+import com.studielink.trustchain.appToApp.PeerAppToApp;
+import com.studielink.trustchain.appToApp.connection.messages.BlockMessage;
+import com.studielink.trustchain.appToApp.connection.messages.MessageException;
 
 public interface CrawlRequestListener {
     void handleCrawlRequestBlockMessageRequest(PeerAppToApp peer, BlockMessage message) throws IOException, MessageException;

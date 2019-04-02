@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import nl.tudelft.cs4160.trustchain_android.inbox.InboxItem;
+import com.studielink.trustchain.inbox.InboxItem;
 
 public class InboxItemStorage {
     //Inbox item key to store the objects

@@ -14,12 +14,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.tudelft.cs4160.trustchain_android.R;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.InboxItemStorage;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.PubKeyAndAddressPairStorage;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
-import nl.tudelft.cs4160.trustchain_android.inbox.InboxItem;
+import com.studielink.trustchain.R;
+import com.studielink.trustchain.SharedPreferences.InboxItemStorage;
+import com.studielink.trustchain.SharedPreferences.PubKeyAndAddressPairStorage;
+import com.studielink.trustchain.SharedPreferences.UserNameStorage;
+import com.studielink.trustchain.appToApp.PeerAppToApp;
+import com.studielink.trustchain.inbox.InboxItem;
 
 public class PeerListAdapter extends ArrayAdapter<PeerAppToApp> {
     private final Context context;

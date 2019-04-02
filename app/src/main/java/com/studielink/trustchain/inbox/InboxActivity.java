@@ -12,9 +12,9 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import nl.tudelft.cs4160.trustchain_android.R;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.InboxItemStorage;
-import nl.tudelft.cs4160.trustchain_android.appToApp.PeerAppToApp;
+import com.studielink.trustchain.R;
+import com.studielink.trustchain.SharedPreferences.InboxItemStorage;
+import com.studielink.trustchain.appToApp.PeerAppToApp;
 
 public class InboxActivity extends AppCompatActivity {
     public static ArrayList<PeerAppToApp> peerList;

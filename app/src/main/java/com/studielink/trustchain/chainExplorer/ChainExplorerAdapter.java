@@ -16,12 +16,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import nl.tudelft.cs4160.trustchain_android.R;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
-import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
-import nl.tudelft.cs4160.trustchain_android.block.TrustChainBlockHelper;
-import nl.tudelft.cs4160.trustchain_android.color.ChainColor;
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import com.studielink.trustchain.R;
+import com.studielink.trustchain.SharedPreferences.UserNameStorage;
+import com.studielink.trustchain.Util.ByteArrayConverter;
+import com.studielink.trustchain.block.TrustChainBlockHelper;
+import com.studielink.trustchain.color.ChainColor;
+import com.studielink.trustchain.message.MessageProto;
 
 public class ChainExplorerAdapter extends BaseAdapter {
     static final String TAG = "ChainExplorerAdapter";

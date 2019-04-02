@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import nl.tudelft.cs4160.trustchain_android.block.TrustChainBlockHelper;
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import com.studielink.trustchain.block.TrustChainBlockHelper;
+import com.studielink.trustchain.message.MessageProto;
 
 public class TrustChainDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;

@@ -1,6 +1,6 @@
 package com.studielink.trustchain.mutualBlock;
 
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import com.studielink.trustchain.message.MessageProto;
 
 /**
  * Class that is used to define a MutualBlock in the recycler view.

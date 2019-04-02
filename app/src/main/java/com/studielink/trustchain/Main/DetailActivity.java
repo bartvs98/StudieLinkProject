@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import nl.tudelft.cs4160.trustchain_android.R;
+import com.studielink.trustchain.R;
 
 public class DetailActivity extends AppCompatActivity {
 

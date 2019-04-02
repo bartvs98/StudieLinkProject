@@ -5,8 +5,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import java.net.InetSocketAddress;
 import java.util.Map;
 
-import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
-import nl.tudelft.cs4160.trustchain_android.message.MessageProto;
+import com.studielink.trustchain.Util.ByteArrayConverter;
+import com.studielink.trustchain.message.MessageProto;
 
 public class BlockMessage extends Message {
     final private static String BLOCK_MESSAGE_KEY = "blockMessage";
