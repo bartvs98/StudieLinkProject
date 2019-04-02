@@ -28,6 +28,22 @@
             android:name="com.studielink.trustchain.Main.DashboardActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".main.TrustChainActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:windowSoftInputMode="stateUnchanged" />
+        <activity android:name=".chainExplorer.ChainExplorerActivity" />
+        <activity android:name=".main.ConnectionExplanationActivity" />
+        <activity
+            android:name=".main.OverviewConnectionsActivity"
+            android:configChanges="orientation|screenLayout|screenSize" />
+        <activity
+            android:name=".main.ChainExplorerInfoActivity"
+            android:label="@string/title_activity_info_chain_explorer" />
+        <activity
+            android:name=".main.BootstrapActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".inbox.InboxActivity"/>
     </application>
 
 </manifest>
