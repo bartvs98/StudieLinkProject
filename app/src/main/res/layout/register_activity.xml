@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:layout_centerHorizontal="true"
-                android:text="Login with DigiD" />
+                android:text="Register once with DigiD" />
 
             <RelativeLayout
                 android:id="@+id/usernameWrapper"
@@ -122,7 +122,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/colorPrimary"
                 android:onClick="OnClickConfirm"
-                android:text="Confirm"
+                android:text="Register"
                 android:textColor="@android:color/white" />
 
 
