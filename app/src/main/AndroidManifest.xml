@@ -26,16 +26,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Main.TrustChainActivity"
-            android:configChanges="orientation|screenLayout|screenSize"
-            android:windowSoftInputMode="stateUnchanged" />
-        <activity android:name=".Main.ChainExplorerActivity" />
-        <activity android:name=".Main.ConnectionExplanationActivity" />
-        <activity
-            android:name=".Main.OverviewConnectionsActivity"
-            android:configChanges="orientation|screenLayout|screenSize" />
-        <activity
-            android:name=".Main.RegisterActivity"
+            android:name="$Main.RegisterActivity"
             android:label="@string/app_name"
             android:noHistory="true"
             android:windowSoftInputMode="adjustResize">
@@ -47,17 +38,29 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Main.FingerprintAuthActivity" />
-        <activity android:name=".QR.ScanQRActivity" />
-        <activity android:name=".QR.ExportWalletQRActivity" />
-        <activity android:name=".Funds.FundsActivity" />
         <activity
-            android:name=".Main.ChainExplorerInfoActivity"
+            android:name="$Main.TrustChainActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:windowSoftInputMode="stateUnchanged" />
+        <activity android:name="$Main.ChainExplorerActivity" />
+        <activity android:name="$Main.ConnectionExplanationActivity" />
+        <activity
+            android:name="$Main.OverviewConnectionsActivity"
+            android:configChanges="orientation|screenLayout|screenSize" />
+
+        <activity
+            android:name="$Main.FingerprintAuthActivity"
+            android:noHistory="true" />
+        <activity android:name="$QR.ScanQRActivity" />
+        <activity android:name="$QR.ExportWalletQRActivity" />
+        <activity android:name="$Funds.FundsActivity" />
+        <activity
+            android:name="$Main.ChainExplorerInfoActivity"
             android:label="@string/title_activity_info_chain_explorer" />
         <activity
-            android:name=".Main.BootstrapActivity"
+            android:name="$Main.BootstrapActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".Inbox.InboxActivity"/>
+        <activity android:name="$Inbox.InboxActivity"/>
     </application>
 
 </manifest>
