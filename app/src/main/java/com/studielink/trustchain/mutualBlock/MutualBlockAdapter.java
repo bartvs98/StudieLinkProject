@@ -17,7 +17,7 @@ import com.studielink.trustchain.Util.ByteArrayConverter;
 import com.studielink.trustchain.color.ChainColor;
 import com.studielink.trustchain.crypto.DualSecret;
 import com.studielink.trustchain.crypto.Key;
-import com.studielink.trustchain.main.TrustChainActivity;
+import com.studielink.trustchain.Main.TrustChainActivity;
 
 public class MutualBlockAdapter extends RecyclerView.Adapter<MutualBlockAdapter.ViewHolder> {
 

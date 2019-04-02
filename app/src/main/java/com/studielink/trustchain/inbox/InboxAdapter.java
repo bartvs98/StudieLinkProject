@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 import com.studielink.trustchain.R;
 import com.studielink.trustchain.appToApp.PeerAppToApp;
-import com.studielink.trustchain.main.TrustChainActivity;
+import com.studielink.trustchain.Main.TrustChainActivity;
 
 public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> {
     private ArrayList<InboxItem> mDataset;

@@ -35,7 +35,7 @@ import com.studielink.trustchain.appToApp.connection.messages.PunctureRequest;
 import com.studielink.trustchain.bencode.BencodeReadException;
 import com.studielink.trustchain.crypto.Key;
 import com.studielink.trustchain.inbox.InboxItem;
-import com.studielink.trustchain.main.OverviewConnectionsActivity;
+import com.studielink.trustchain.Main.OverviewConnectionsActivity;
 import com.studielink.trustchain.message.MessageProto;
 
 import static com.studielink.trustchain.message.MessageProto.Message.newBuilder;

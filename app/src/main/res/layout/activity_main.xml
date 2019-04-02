@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:id="@+id/myCoordinatorLayout"
-    tools:context="com.studielink.trustchain.main.TrustChainActivity">
+    tools:context="com.studielink.trustchain.Main.TrustChainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
