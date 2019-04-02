@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.qr.exception;
+package nl.tudelft.cs4160.trustchain_android.QR.exception;
 
 public class QRWalletParseException extends QRWalletImportException {
     public QRWalletParseException(String message) {

@@ -54,9 +54,9 @@ import nl.tudelft.cs4160.trustchain_android.Crypto.Key;
 import nl.tudelft.cs4160.trustchain_android.Storage.TrustChainDBHelper;
 import nl.tudelft.cs4160.trustchain_android.Inbox.InboxActivity;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
-import nl.tudelft.cs4160.trustchain_android.funds.FundsActivity;
-import nl.tudelft.cs4160.trustchain_android.qr.ExportWalletQRActivity;
-import nl.tudelft.cs4160.trustchain_android.qr.ScanQRActivity;
+import nl.tudelft.cs4160.trustchain_android.Funds.FundsActivity;
+import nl.tudelft.cs4160.trustchain_android.QR.ExportWalletQRActivity;
+import nl.tudelft.cs4160.trustchain_android.QR.ScanQRActivity;
 
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.GENESIS_SEQ;
 

@@ -48,9 +48,9 @@
         </activity>
 
         <activity android:name=".Main.FingerprintAuthActivity" />
-        <activity android:name=".qr.ScanQRActivity" />
-        <activity android:name=".qr.ExportWalletQRActivity" />
-        <activity android:name=".funds.FundsActivity" />
+        <activity android:name=".QR.ScanQRActivity" />
+        <activity android:name=".QR.ExportWalletQRActivity" />
+        <activity android:name=".Funds.FundsActivity" />
         <activity
             android:name=".Main.ChainExplorerInfoActivity"
             android:label="@string/title_activity_info_chain_explorer" />

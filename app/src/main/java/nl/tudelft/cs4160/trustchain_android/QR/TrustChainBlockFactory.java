@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.qr;
+package nl.tudelft.cs4160.trustchain_android.QR;
 
 import android.util.Base64;
 
@@ -14,10 +14,10 @@ import nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper;
 import nl.tudelft.cs4160.trustchain_android.Crypto.DualSecret;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 import nl.tudelft.cs4160.trustchain_android.Storage.TrustChainDBHelper;
-import nl.tudelft.cs4160.trustchain_android.qr.exception.InvalidDualKeyException;
-import nl.tudelft.cs4160.trustchain_android.qr.exception.QRWalletImportException;
-import nl.tudelft.cs4160.trustchain_android.qr.models.QRTransaction;
-import nl.tudelft.cs4160.trustchain_android.qr.models.QRWallet;
+import nl.tudelft.cs4160.trustchain_android.QR.exception.InvalidDualKeyException;
+import nl.tudelft.cs4160.trustchain_android.QR.exception.QRWalletImportException;
+import nl.tudelft.cs4160.trustchain_android.QR.models.QRTransaction;
+import nl.tudelft.cs4160.trustchain_android.QR.models.QRWallet;
 
 public class TrustChainBlockFactory {
     Moshi moshi = new Moshi.Builder().build();

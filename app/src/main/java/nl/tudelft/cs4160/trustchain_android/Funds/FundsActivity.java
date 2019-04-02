@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.funds;
+package nl.tudelft.cs4160.trustchain_android.Funds;
 
 
 import android.animation.ObjectAnimator;

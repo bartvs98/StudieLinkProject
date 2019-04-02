@@ -1,4 +1,4 @@
-package nl.tudelft.cs4160.trustchain_android.qr;
+package nl.tudelft.cs4160.trustchain_android.QR;
 
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -31,9 +31,9 @@ import nl.tudelft.cs4160.trustchain_android.Crypto.Key;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.Storage.TrustChainDBHelper;
-import nl.tudelft.cs4160.trustchain_android.qr.models.QRBlock;
-import nl.tudelft.cs4160.trustchain_android.qr.models.QRTransaction;
-import nl.tudelft.cs4160.trustchain_android.qr.models.QRWallet;
+import nl.tudelft.cs4160.trustchain_android.QR.models.QRBlock;
+import nl.tudelft.cs4160.trustchain_android.QR.models.QRTransaction;
+import nl.tudelft.cs4160.trustchain_android.QR.models.QRWallet;
 
 
 public class ExportWalletQRActivity extends AppCompatActivity {
