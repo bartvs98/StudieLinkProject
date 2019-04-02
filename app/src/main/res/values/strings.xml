@@ -97,5 +97,9 @@
     <string name="funds">Funds</string>
     <string name="transactions">Transactions</string>
 
+    <!--Fingerprint-->
+    <string name="auth_text">Fingerprint Authentication</string>
     <string name="auth_instructions">Place your fingertip on the Home button to verify your identity</string>
+    <!--End Fingerprint-->
+
 </resources>
