@@ -23,8 +23,7 @@
             android:id="@+id/bootstrap_IP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/connect_bootstrap_ip_hint"
-            android:inputType="number" />
+            android:hint="@string/connect_bootstrap_ip_hint" />
 
         <View
             android:layout_width="fill_parent"
