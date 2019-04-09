@@ -65,7 +65,7 @@ public class InstitutionAccountStorage extends SQLiteOpenHelper {
         }
     }
 
-    public boolean checkAccExsitance(String username, String password) {
+    public boolean checkAccExistance(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         String sql = "SELECT * FROM " + TABLE_NAME +
                 " WHERE " + COL2 + "='" + username + "'" +
