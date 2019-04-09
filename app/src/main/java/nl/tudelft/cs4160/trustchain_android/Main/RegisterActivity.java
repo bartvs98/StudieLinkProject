@@ -20,12 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     AccountStorage accountStorage;
     private TextView userMsg;
 
-    /**
-     * Checks if there is already a username set in the past.
-     * If there is one, it should be stored in the preferences.
-     * Go directly to the next activity when there is one already.
-     * @param savedInstanceState
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
