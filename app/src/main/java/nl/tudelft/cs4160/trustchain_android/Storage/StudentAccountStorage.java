@@ -7,18 +7,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class AccountStorage extends SQLiteOpenHelper {
+public class StudentAccountStorage extends SQLiteOpenHelper {
 
-    private static final String TAG = "AccountStorage";
+    private static final String TAG = "StudentAccountStorage";
 
-    private static final String TABLE_NAME = "account";
+    private static final String TABLE_NAME = "studentaccount";
     private static final String COL1 = "ID";
     private static final String COL2 = "username";
     private static final String COL3 = "name";
     private static final String COL4 = "surname";
     private static final String COL5 = "age";
 
-    public AccountStorage(Context context) {
+    public StudentAccountStorage(Context context) {
         super(context, TABLE_NAME, null, 1);
     }
 
@@ -43,15 +43,15 @@ public class AccountStorage extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insert(Account account) {
+    public boolean insert(StudentAccount studentAccount) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL2, account.getUsername());
-        contentValues.put(COL3, account.getName());
-        contentValues.put(COL4, account.getSurname());
-        contentValues.put(COL5, account.getAge());
+        contentValues.put(COL2, studentAccount.getUsername());
+        contentValues.put(COL3, studentAccount.getName());
+        contentValues.put(COL4, studentAccount.getSurname());
+        contentValues.put(COL5, studentAccount.getAge());
 
-        Log.d(TAG, "insert: Inserting account into " + TABLE_NAME);
+        Log.d(TAG, "insert: Inserting studentAccount into " + TABLE_NAME);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 

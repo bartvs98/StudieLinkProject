@@ -3,7 +3,7 @@ package nl.tudelft.cs4160.trustchain_android.Mock;
 import android.content.Context;
 import android.database.Cursor;
 
-import nl.tudelft.cs4160.trustchain_android.Storage.Account;
+import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccount;
 
 public class DigiDMockService {
 
@@ -17,18 +17,18 @@ public class DigiDMockService {
         return digiDStorage.checkAccExsitance(username, password);
     }
 
-    public Account getAccountInfo(String username) {
+    public StudentAccount getAccountInfo(String username) {
         Cursor data = digiDStorage.getDataByUserName(username);
 
         while(data.moveToNext()){
-            Account account = new Account(
+            StudentAccount studentAccount = new StudentAccount(
                     data.getString(1),
                     data.getString(3),
                     data.getString(4),
                     data.getInt(5)
             );
 
-            return account;
+            return studentAccount;
         }
 
         return null;
