@@ -110,8 +110,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                android:hint="Message Text"
-                android:textColor="@android:color/black"/>
+                android:autoText="false"
+                android:inputType="text"
+                android:text="Vraag Bewijs Betaald Collegegeld"
+                android:textColor="@android:color/black" />
 
             <Button
                 android:id="@+id/send_button"
