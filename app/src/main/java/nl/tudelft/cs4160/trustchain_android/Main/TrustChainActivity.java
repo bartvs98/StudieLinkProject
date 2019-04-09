@@ -66,6 +66,7 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
     private Context context;
     boolean developerMode = false;
     private RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView2;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private Network network;
@@ -79,6 +80,7 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
     EditText editTextDestinationIP;
     EditText editTextDestinationPort;
     EditText messageEditText;
+    TextView messageText;
     SwitchCompat switchDeveloperMode;
     LinearLayout extraInformationPanel;
     TrustChainActivity thisActivity;
@@ -157,7 +159,7 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
+        setContentView(R.layout.activity_message2);
         this.context = this;
         DBHelper = new TrustChainDBHelper(this);
         inboxItemOtherPeer = (InboxItem) getIntent().getSerializableExtra("inboxItem");
@@ -261,6 +263,8 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
     /**
      * Initialization of all variables all textfields are set
      * such as local and external ip
+     *
+     * Linking the variables with the widgets on the UI.
      */
     private void initVariables() {
         thisActivity = this;
@@ -272,9 +276,11 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
         editTextDestinationIP = findViewById(R.id.destination_IP);
         editTextDestinationPort = findViewById(R.id.destination_port);
         messageEditText = findViewById(R.id.message_edit_text);
+        messageText = findViewById(R.id.message_text);
         extraInformationPanel = findViewById(R.id.extra_information_panel);
         developerModeText = findViewById(R.id.developer_mode_text);
         mRecyclerView = findViewById(R.id.mutualBlocksRecyclerView);
+        mRecyclerView2 = findViewById(R.id.mutualBlocksRecyclerView2);
         switchDeveloperMode = findViewById(R.id.switch_developer_mode);
         switchDeveloperMode.setOnCheckedChangeListener(this);
         editTextDestinationIP = (EditText) findViewById(R.id.destination_IP);
@@ -409,6 +415,33 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
         final MessageProto.TrustChainBlock signedBlock = TrustChainBlockHelper.sign(block, Key.loadKeys(getApplicationContext()).getSigningKey());
         messageEditText.setText("");
         messageEditText.clearFocus();
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        // insert the half block in your own chain
+        new TrustChainDBHelper(this).insertInDB(signedBlock);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    network.sendBlockMessage(inboxItemOtherPeer.getPeerAppToApp(), signedBlock, true);
+                    Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Half block send!", Snackbar.LENGTH_SHORT);
+                    mySnackbar.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    public void onClickSend2(View view) throws UnsupportedEncodingException {
+        Log.d("testLogs", "onClickSendMessage");
+
+        byte[] publicKey = Key.loadKeys(this).getPublicKey().toBytes();
+        byte[] transactionData = messageText.getText().toString().getBytes("UTF-8");
+        final MessageProto.TrustChainBlock block = createBlock(transactionData, DBHelper, publicKey, null, ByteArrayConverter.hexStringToByteArray(inboxItemOtherPeer.getPublicKey()));
+        final MessageProto.TrustChainBlock signedBlock = TrustChainBlockHelper.sign(block, Key.loadKeys(getApplicationContext()).getSigningKey());
+
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         // insert the half block in your own chain
