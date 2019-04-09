@@ -11,13 +11,13 @@ import android.widget.TextView;
 import nl.tudelft.cs4160.trustchain_android.Mock.DigiDMockService;
 import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
-import nl.tudelft.cs4160.trustchain_android.Storage.Account;
-import nl.tudelft.cs4160.trustchain_android.Storage.AccountStorage;
+import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccount;
+import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccountStorage;
 
 public class RegisterActivity extends AppCompatActivity {
     Context context;
     DigiDMockService digiDMockService;
-    AccountStorage accountStorage;
+    StudentAccountStorage studentAccountStorage;
     private TextView userMsg;
 
 
@@ -50,9 +50,9 @@ public class RegisterActivity extends AppCompatActivity {
             if (digiDMockService.checkExsitance(username, password)) {
                 UserNameStorage.setUserName(context, username);
 
-                Account loginResult = digiDMockService.getAccountInfo(username);
-                accountStorage = new AccountStorage(this);
-                accountStorage.insert(loginResult);
+                StudentAccount loginResult = digiDMockService.getAccountInfo(username);
+                studentAccountStorage = new StudentAccountStorage(this);
+                studentAccountStorage.insert(loginResult);
 
                 Intent myIntent = new Intent(this, FingerprintAuthActivity.class);
                 myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
