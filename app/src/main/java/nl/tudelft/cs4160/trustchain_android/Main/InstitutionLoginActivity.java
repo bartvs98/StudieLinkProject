@@ -20,7 +20,7 @@ public class InstitutionLoginActivity extends AppCompatActivity {
         context = this;
 
         if (UserNameStorage.getUserName(this) == null) {
-            setContentView(R.layout.institution_login_activity);
+            setContentView(R.layout.activity_institution_login);
         } else {
             Intent myIntent = new Intent(this, OverviewConnectionsActivity.class);
             myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

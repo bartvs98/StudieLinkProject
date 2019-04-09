@@ -27,7 +27,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
         context = this;
 
         if (UserNameStorage.getUserName(this) == null) {
-            setContentView(R.layout.student_register_activity);
+            setContentView(R.layout.activity_student_register);
         } else {
             Intent myIntent = new Intent(this, FingerprintAuthActivity.class);
             myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

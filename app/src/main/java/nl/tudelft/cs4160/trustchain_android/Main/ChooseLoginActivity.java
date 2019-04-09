@@ -18,7 +18,7 @@ public class ChooseLoginActivity extends AppCompatActivity {
         context = this;
 
         if (UserNameStorage.getUserName(this) == null) {
-            setContentView(R.layout.choose_login_type);
+            setContentView(R.layout.activity_choose_login_type);
         } else {
             Intent myIntent = new Intent(this, FingerprintAuthActivity.class);
             myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
