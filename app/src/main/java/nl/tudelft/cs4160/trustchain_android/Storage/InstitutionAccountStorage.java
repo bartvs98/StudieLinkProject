@@ -36,8 +36,8 @@ public class InstitutionAccountStorage extends SQLiteOpenHelper {
         InstitutionAccount institutionAccount1 = new InstitutionAccount("HU", "admin01", "Hogeschool Utrecht");
         InstitutionAccount institutionAccount2 = new InstitutionAccount("UU", "admin01", "Universiteit Utrecht");
 
-        insert(institutionAccount1);
-        insert(institutionAccount2);
+        insert(db, institutionAccount1);
+        insert(db, institutionAccount2);
     }
 
 
@@ -47,8 +47,7 @@ public class InstitutionAccountStorage extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insert(InstitutionAccount institutionAccount) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public boolean insert(SQLiteDatabase db,InstitutionAccount institutionAccount) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, institutionAccount.getUsername());
         contentValues.put(COL3, institutionAccount.getPassword());
