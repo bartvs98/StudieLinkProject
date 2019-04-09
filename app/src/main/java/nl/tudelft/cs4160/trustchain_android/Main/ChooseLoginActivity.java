@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import nl.tudelft.cs4160.trustchain_android.R;
-import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
+import nl.tudelft.cs4160.trustchain_android.SharedPreferences.LoginTypeStorage;
 
 public class ChooseLoginActivity extends AppCompatActivity {
     Context context;
@@ -17,12 +17,18 @@ public class ChooseLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         context = this;
 
-        if (UserNameStorage.getUserName(this) == null) {
+        if (LoginTypeStorage.getLoginType(this) == null) {
             setContentView(R.layout.activity_choose_login_type);
-        } else {
-            Intent myIntent = new Intent(this, FingerprintAuthActivity.class);
+        } else if (LoginTypeStorage.getLoginType(this).equals("student")) {
+            Intent myIntent = new Intent(this, StudentRegisterActivity.class);
             myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             this.startActivity(myIntent);
+            this.finish();
+        } else if (LoginTypeStorage.getLoginType(this).equals("institution")) {
+            Intent myIntent = new Intent(this, InstitutionLoginActivity.class);
+            myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            this.startActivity(myIntent);
+            this.finish();
         }
 
     }
@@ -31,11 +37,13 @@ public class ChooseLoginActivity extends AppCompatActivity {
         Intent myIntent = new Intent(this, StudentRegisterActivity.class);
         myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         this.startActivity(myIntent);
+        this.finish();
     }
 
     public void loginAsInstitution(View view) {
         Intent myIntent = new Intent(this, InstitutionLoginActivity.class);
         myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         this.startActivity(myIntent);
+        this.finish();
     }
 }

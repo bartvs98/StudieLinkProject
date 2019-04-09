@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import nl.tudelft.cs4160.trustchain_android.R;
+import nl.tudelft.cs4160.trustchain_android.SharedPreferences.LoginTypeStorage;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
 import nl.tudelft.cs4160.trustchain_android.Storage.InstitutionAccountStorage;
 import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccount;
@@ -25,14 +26,7 @@ public class InstitutionLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         context = this;
 
-        if (UserNameStorage.getUserName(this) == null) {
-            setContentView(R.layout.activity_institution_login);
-        } else {
-            Intent myIntent = new Intent(this, OverviewConnectionsActivity.class);
-            myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            this.startActivity(myIntent);
-        }
-
+        setContentView(R.layout.activity_institution_login);
     }
 
     public void LoginAsInstitution(View view) {
@@ -48,6 +42,7 @@ public class InstitutionLoginActivity extends AppCompatActivity {
 
             if (institutionAccountStorage.checkAccExistance(username, password)) {
                 UserNameStorage.setUserName(context, username);
+                LoginTypeStorage.setLoginType(context, "institution");
 
                 Intent myIntent = new Intent(this, OverviewConnectionsActivity.class);
                 myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

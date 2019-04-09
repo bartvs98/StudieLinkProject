@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import nl.tudelft.cs4160.trustchain_android.Mock.DigiDMockService;
 import nl.tudelft.cs4160.trustchain_android.R;
+import nl.tudelft.cs4160.trustchain_android.SharedPreferences.LoginTypeStorage;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
 import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccount;
 import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccountStorage;
@@ -49,6 +50,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
 
             if (digiDMockService.checkExsitance(username, password)) {
                 UserNameStorage.setUserName(context, username);
+                LoginTypeStorage.setLoginType(context, "student");
 
                 StudentAccount loginResult = digiDMockService.getAccountInfo(username);
                 studentAccountStorage = new StudentAccountStorage(this);
