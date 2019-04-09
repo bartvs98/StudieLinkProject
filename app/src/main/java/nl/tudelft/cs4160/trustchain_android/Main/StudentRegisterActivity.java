@@ -14,7 +14,7 @@ import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
 import nl.tudelft.cs4160.trustchain_android.Storage.Account;
 import nl.tudelft.cs4160.trustchain_android.Storage.AccountStorage;
 
-public class RegisterActivity extends AppCompatActivity {
+public class StudentRegisterActivity extends AppCompatActivity {
     Context context;
     DigiDMockService digiDMockService;
     AccountStorage accountStorage;
@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
         context = this;
 
         if (UserNameStorage.getUserName(this) == null) {
-            setContentView(R.layout.register_activity);
+            setContentView(R.layout.student_register_activity);
         } else {
             Intent myIntent = new Intent(this, FingerprintAuthActivity.class);
             myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
