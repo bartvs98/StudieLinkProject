@@ -117,19 +117,19 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
                 Intent chainExplorerActivity = new Intent(this, ChainExplorerActivity.class);
                 startActivity(chainExplorerActivity);
                 return true;
-            case R.id.connection_explanation_menu:
-                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
-                startActivity(ConnectionExplanationActivity);
-                return true;
-            case R.id.import_tokens:
-                startActivity(new Intent(OverviewConnectionsActivity.this, ScanQRActivity.class));
-                return true;
-            case R.id.export_tokens:
-                startActivity(new Intent(OverviewConnectionsActivity.this, ExportWalletQRActivity.class));
-                return true;
-            case R.id.funds:
-                startActivity(new Intent(this, FundsActivity.class));
-                return true;
+//            case R.id.connection_explanation_menu:
+//                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
+//                startActivity(ConnectionExplanationActivity);
+//                return true;
+//            case R.id.import_tokens:
+//                startActivity(new Intent(OverviewConnectionsActivity.this, ScanQRActivity.class));
+//                return true;
+//            case R.id.export_tokens:
+//                startActivity(new Intent(OverviewConnectionsActivity.this, ExportWalletQRActivity.class));
+//                return true;
+//            case R.id.funds:
+//                startActivity(new Intent(this, FundsActivity.class));
+//                return true;
             case R.id.find_peer:
                 startActivity(new Intent(this, FindInstitutionActivity.class));
                 return true;
