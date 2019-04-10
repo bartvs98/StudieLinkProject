@@ -21,7 +21,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,14 +50,11 @@ import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.Punctur
 import nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper;
 import nl.tudelft.cs4160.trustchain_android.Crypto.DualSecret;
 import nl.tudelft.cs4160.trustchain_android.Crypto.Key;
-import nl.tudelft.cs4160.trustchain_android.Funds.FundsActivity;
 import nl.tudelft.cs4160.trustchain_android.Inbox.InboxActivity;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 import nl.tudelft.cs4160.trustchain_android.Network.Network;
 import nl.tudelft.cs4160.trustchain_android.Network.NetworkCommunicationListener;
-import nl.tudelft.cs4160.trustchain_android.QR.ExportWalletQRActivity;
-import nl.tudelft.cs4160.trustchain_android.QR.QRGenerator;
-import nl.tudelft.cs4160.trustchain_android.QR.ScanQRActivity;
+import nl.tudelft.cs4160.trustchain_android.Handlers.QRGenerator;
 import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.BootstrapIPStorage;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
@@ -124,15 +120,6 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
 //            case R.id.connection_explanation_menu:
 //                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
 //                startActivity(ConnectionExplanationActivity);
-//                return true;
-//            case R.id.import_tokens:
-//                startActivity(new Intent(this, ScanQRActivity.class));
-//                return true;
-//            case R.id.export_tokens:
-//                startActivity(new Intent(this, ExportWalletQRActivity.class));
-//                return true;
-//            case R.id.funds:
-//                startActivity(new Intent(this, FundsActivity.class));
 //                return true;
 //            case R.id.find_peer:
 //                Intent bootstrapActivity = new Intent(this, BootstrapActivity.class);

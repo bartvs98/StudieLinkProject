@@ -36,7 +36,7 @@ import java.util.List;
 
 import nl.tudelft.cs4160.trustchain_android.Network.Network;
 import nl.tudelft.cs4160.trustchain_android.Network.NetworkCommunicationListener;
-import nl.tudelft.cs4160.trustchain_android.QR.QRGenerator;
+import nl.tudelft.cs4160.trustchain_android.Handlers.QRGenerator;
 import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.BootstrapIPStorage;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
@@ -57,9 +57,6 @@ import nl.tudelft.cs4160.trustchain_android.Crypto.Key;
 import nl.tudelft.cs4160.trustchain_android.Storage.TrustChainDBHelper;
 import nl.tudelft.cs4160.trustchain_android.Inbox.InboxActivity;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
-import nl.tudelft.cs4160.trustchain_android.Funds.FundsActivity;
-import nl.tudelft.cs4160.trustchain_android.QR.ExportWalletQRActivity;
-import nl.tudelft.cs4160.trustchain_android.QR.ScanQRActivity;
 
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.GENESIS_SEQ;
 
@@ -117,19 +114,10 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
                 Intent chainExplorerActivity = new Intent(this, ChainExplorerActivity.class);
                 startActivity(chainExplorerActivity);
                 return true;
-//            case R.id.connection_explanation_menu:
-//                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
-//                startActivity(ConnectionExplanationActivity);
-//                return true;
-//            case R.id.import_tokens:
-//                startActivity(new Intent(OverviewConnectionsActivity.this, ScanQRActivity.class));
-//                return true;
-//            case R.id.export_tokens:
-//                startActivity(new Intent(OverviewConnectionsActivity.this, ExportWalletQRActivity.class));
-//                return true;
-//            case R.id.funds:
-//                startActivity(new Intent(this, FundsActivity.class));
-//                return true;
+            case R.id.connection_explanation_menu:
+                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
+                startActivity(ConnectionExplanationActivity);
+                return true;
             case R.id.find_peer:
                 startActivity(new Intent(this, FindInstitutionActivity.class));
                 return true;

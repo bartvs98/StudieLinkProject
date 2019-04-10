@@ -23,7 +23,6 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
-import nl.tudelft.cs4160.trustchain_android.QR.ScanQRActivity;
 import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.BootstrapIPStorage;
 

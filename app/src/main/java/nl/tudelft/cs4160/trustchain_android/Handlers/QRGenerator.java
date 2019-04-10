@@ -1,17 +1,13 @@
-package nl.tudelft.cs4160.trustchain_android.QR;
+package nl.tudelft.cs4160.trustchain_android.Handlers;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Point;
-import android.view.Display;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
-
-import nl.tudelft.cs4160.trustchain_android.R;
 
 public class QRGenerator {
 
