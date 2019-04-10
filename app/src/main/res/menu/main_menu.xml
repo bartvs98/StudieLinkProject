@@ -29,4 +29,9 @@
         android:id="@+id/export_tokens"
         android:title="@string/export_tokens"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/clear_data"
+        android:title="Clear data"
+        app:showAsAction="never" />
 </menu>

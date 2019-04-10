@@ -1,6 +1,7 @@
 package nl.tudelft.cs4160.trustchain_android.Main;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -128,6 +129,9 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
             case R.id.find_peer:
                 Intent bootstrapActivity = new Intent(this, BootstrapActivity.class);
                 startActivityForResult(bootstrapActivity, 1);
+            case R.id.clear_data:
+                ((ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE))
+                        .clearApplicationUserData();
             default:
                 return true;
         }

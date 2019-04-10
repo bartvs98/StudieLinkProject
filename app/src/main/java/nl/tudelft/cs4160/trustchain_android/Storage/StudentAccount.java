@@ -1,13 +1,13 @@
 package nl.tudelft.cs4160.trustchain_android.Storage;
 
-public class Account {
+public class StudentAccount {
 
     private String username;
     private String name;
     private String surname;
     private Integer age;
 
-    public Account(String username, String name, String surname, Integer age) {
+    public StudentAccount(String username, String name, String surname, Integer age) {
         this.username = username;
         this.name = name;
         this.surname = surname;
