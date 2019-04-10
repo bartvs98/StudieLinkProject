@@ -81,6 +81,11 @@
             tools:ignore="InnerclassSeparator"/>
 
         <activity
+            android:name=".Main.FindInstitutionActivity"
+            android:noHistory="true"
+            tools:ignore="InnerclassSeparator"/>
+
+        <activity
             android:name=".QR.ScanQRActivity"
             tools:ignore="InnerclassSeparator" />
 
