@@ -104,16 +104,12 @@
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/message_edit_text"
+            <TextView
+                android:id="@+id/textView_message"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
+                android:layout_height="30dp"
                 android:layout_weight="1"
-                android:autoText="false"
-                android:inputType="text"
-                android:text="Vraag Bewijs Betaald Collegegeld"
-                android:textColor="@android:color/black" />
+                android:text="Vraag Bewijs Betaald Collegegeld" />
 
             <Button
                 android:id="@+id/send_button"
@@ -160,6 +156,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"/>
+
+        <EditText
+            android:id="@+id/message_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:inputType="text"
+            android:text="Vraag Bewijs Betaald Collegegeld"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
