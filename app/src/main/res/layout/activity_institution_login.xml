@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Main.RegisterActivity">
+    tools:context=".Main.InstitutionLoginActivity">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,7 +16,7 @@
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Main.RegisterActivity">
+        tools:context=".Main.InstitutionLoginActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:layout_centerHorizontal="true"
-                android:text="Register once with DigiD" />
+                android:text="Login with your credentials" />
 
             <RelativeLayout
                 android:id="@+id/usernameWrapper"
@@ -121,8 +121,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/colorPrimary"
-                android:onClick="OnClickConfirm"
-                android:text="Register"
+                android:onClick="LoginAsInstitution"
+                android:text="Login"
                 android:textColor="@android:color/white" />
 
 

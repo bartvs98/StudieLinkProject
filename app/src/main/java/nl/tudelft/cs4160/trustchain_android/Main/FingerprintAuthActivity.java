@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import nl.tudelft.cs4160.trustchain_android.Handlers.FingerprintHandler;
 import nl.tudelft.cs4160.trustchain_android.R;
-import nl.tudelft.cs4160.trustchain_android.Storage.AccountStorage;
+import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccountStorage;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -39,14 +39,14 @@ public class FingerprintAuthActivity extends AppCompatActivity {
     private FingerprintManager fingerprintManager;
     private KeyguardManager keyguardManager;
 
-    AccountStorage accountStorage;
+    StudentAccountStorage studentAccountStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fingerprint_auth);
 
-        accountStorage = new AccountStorage(this);
+        studentAccountStorage = new StudentAccountStorage(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);

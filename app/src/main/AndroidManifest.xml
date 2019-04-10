@@ -27,9 +27,9 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".Main.RegisterActivity"
+            android:name=".Main.ChooseLoginActivity"
             android:label="@string/app_name"
-            android:noHistory="true"
+
             android:windowSoftInputMode="adjustResize"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
@@ -62,6 +62,18 @@
             android:name=".Main.FingerprintAuthActivity"
             android:noHistory="true"
             tools:ignore="InnerclassSeparator" />
+
+        <activity
+            android:name=".Main.StudentRegisterActivity"
+            android:noHistory="true"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            tools:ignore="InnerclassSeparator" />
+
+        <activity
+            android:name=".Main.InstitutionLoginActivity"
+            android:noHistory="true"
+            tools:ignore="InnerclassSeparator"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
 
         <activity
             android:name=".QR.ScanQRActivity"
