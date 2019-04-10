@@ -23,6 +23,7 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+import nl.tudelft.cs4160.trustchain_android.QR.ScanQRActivity;
 import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.BootstrapIPStorage;
 
@@ -100,11 +101,22 @@ public class FindInstitutionActivity extends AppCompatActivity {
                 }
                 Intent returnIntent = new Intent();
                 BootstrapIPStorage.setIP(FindInstitutionActivity.this, result.toString());
+
                 returnIntent.putExtra("ConnectableAddress", result.toString());
                 setResult(OverviewConnectionsActivity.RESULT_OK,returnIntent);
                 finish();
             } catch (Exception e){
                 Toast.makeText(FindInstitutionActivity.this, "The bootstrap IP address is not a valid IP address: " + result.toString(), Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(FindInstitutionActivity.this)
+                        .setTitle("Error")
+                        .setMessage("Something went wrong processing the QR data")
+                        .setNeutralButton(android.R.string.ok, null)
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialogInterface) {
+                                scannerView.resumeCameraPreview(scanResultHandler);
+                            }
+                        }).show();
             }
         }
     };
