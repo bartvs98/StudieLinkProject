@@ -76,6 +76,11 @@
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
         <activity
+            android:name=".Main.InstitutionHomeActivity"
+            android:noHistory="true"
+            tools:ignore="InnerclassSeparator"/>
+
+        <activity
             android:name=".QR.ScanQRActivity"
             tools:ignore="InnerclassSeparator" />
 
