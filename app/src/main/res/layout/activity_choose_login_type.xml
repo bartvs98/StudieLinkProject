@@ -45,7 +45,7 @@
                     android:layout_marginTop="200dp"
                     android:background="@color/colorPrimary"
                     android:onClick="loginAsStudent"
-                    android:text="Login as a student"
+                    android:text="Register as a student"
                     android:textColor="@android:color/white" />
 
             </RelativeLayout>

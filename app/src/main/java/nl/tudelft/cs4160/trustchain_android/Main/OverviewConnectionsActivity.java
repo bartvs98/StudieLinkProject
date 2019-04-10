@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,6 +36,7 @@ import java.util.List;
 
 import nl.tudelft.cs4160.trustchain_android.Network.Network;
 import nl.tudelft.cs4160.trustchain_android.Network.NetworkCommunicationListener;
+import nl.tudelft.cs4160.trustchain_android.QR.QRGenerator;
 import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.BootstrapIPStorage;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
@@ -73,6 +75,8 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
     private Network network;
     private PeerHandler peerHandler;
     private String wan = "";
+    private QRGenerator qrGenerator = new QRGenerator();
+    private ImageView qrImage;
 
     /**
      * Initialize views, start send and receive threads if necessary.
@@ -565,6 +569,10 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
     @Override
     public void updateInternalSourceAddress(final String address) {
         Log.d("App-To-App Log", "Local ip: " + address);
+
+        qrGenerator.setContent(address.replace("/", "").split(":")[0]);
+        qrImage = findViewById(R.id.qr_image);
+        qrGenerator.generateQRforIP(qrImage);
 
         runOnUiThread(new Runnable() {
             @Override
