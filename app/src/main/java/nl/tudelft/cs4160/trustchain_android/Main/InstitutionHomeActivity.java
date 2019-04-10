@@ -149,11 +149,11 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
      * On click open inbox button open the inbox activity.
      * @param view
      */
-//    public void onClickOpenInbox(View view) {
-//        InboxActivity.peerList = peerHandler.getPeerList();
-//        Intent inboxActivityIntent = new Intent(this, InboxActivity.class);
-//        startActivity(inboxActivityIntent);
-//    }
+    public void onClickOpenInbox(View view) {
+        InboxActivity.peerList = peerHandler.getPeerList();
+        Intent inboxActivityIntent = new Intent(this, InboxActivity.class);
+        startActivity(inboxActivityIntent);
+    }
 
     /**
      * If the app is launched for the first time
