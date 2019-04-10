@@ -129,6 +129,7 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
             case R.id.find_peer:
                 Intent bootstrapActivity = new Intent(this, BootstrapActivity.class);
                 startActivityForResult(bootstrapActivity, 1);
+                return true;
             case R.id.clear_data:
                 ((ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE))
                         .clearApplicationUserData();
