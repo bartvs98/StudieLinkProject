@@ -117,32 +117,26 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
      */
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.chain_menu:
+//            case R.id.chain_menu:
 //                Intent chainExplorerActivity = new Intent(this, ChainExplorerActivity.class);
 //                startActivity(chainExplorerActivity);
 //                return true;
-                return false;
-            case R.id.connection_explanation_menu:
+//            case R.id.connection_explanation_menu:
 //                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
 //                startActivity(ConnectionExplanationActivity);
 //                return true;
-                return false;
-            case R.id.import_tokens:
+//            case R.id.import_tokens:
 //                startActivity(new Intent(this, ScanQRActivity.class));
 //                return true;
-                return false;
-            case R.id.export_tokens:
+//            case R.id.export_tokens:
 //                startActivity(new Intent(this, ExportWalletQRActivity.class));
 //                return true;
-                return false;
-            case R.id.funds:
+//            case R.id.funds:
 //                startActivity(new Intent(this, FundsActivity.class));
 //                return true;
-                return false;
-            case R.id.find_peer:
+//            case R.id.find_peer:
 //                Intent bootstrapActivity = new Intent(this, BootstrapActivity.class);
 //                startActivityForResult(bootstrapActivity, 1);
-                return false;
             case R.id.clear_data:
                 ((ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE))
                         .clearApplicationUserData();
