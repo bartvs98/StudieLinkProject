@@ -44,7 +44,7 @@ public class InstitutionLoginActivity extends AppCompatActivity {
                 UserNameStorage.setUserName(context, username);
                 LoginTypeStorage.setLoginType(context, "institution");
 
-                Intent myIntent = new Intent(this, OverviewConnectionsActivity.class);
+                Intent myIntent = new Intent(this, InstitutionHomeActivity.class);
                 myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 this.startActivity(myIntent);
             } else {

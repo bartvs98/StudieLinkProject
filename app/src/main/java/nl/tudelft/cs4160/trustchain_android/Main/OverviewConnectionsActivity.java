@@ -570,10 +570,6 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
     public void updateInternalSourceAddress(final String address) {
         Log.d("App-To-App Log", "Local ip: " + address);
 
-        qrGenerator.setContent(address.replace("/", "").split(":")[0]);
-        qrImage = findViewById(R.id.qr_image);
-        qrGenerator.generateQRforIP(qrImage);
-
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

@@ -65,8 +65,6 @@
                     android:text="" />
             </TableRow>
 
-            <include layout="@layout/test_layout"/>
-
             <TableRow android:layout_marginBottom="10dp">
                 <TextView
                     android:layout_weight="1"

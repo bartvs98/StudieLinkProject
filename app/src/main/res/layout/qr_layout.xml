@@ -10,8 +10,8 @@
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/qr_image"
-            android:layout_width="512px"
-            android:layout_height="512px" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </android.support.v7.widget.LinearLayoutCompat>
 
