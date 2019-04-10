@@ -39,13 +39,13 @@
                 android:layout_marginTop="42dp">
 
                 <Button
-                    android:id="@+id/studentLogin"
+                    android:id="@+id/institutionLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="200dp"
                     android:background="@color/colorPrimary"
-                    android:onClick="loginAsStudent"
-                    android:text="Register as a student"
+                    android:onClick="loginAsInstitution"
+                    android:text="Login as an Educational Institution"
                     android:textColor="@android:color/white" />
 
             </RelativeLayout>
@@ -58,13 +58,13 @@
                 android:layout_marginTop="28dp">
 
                 <Button
-                    android:id="@+id/institutionLogin"
+                    android:id="@+id/studentLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorPrimary"
-                    android:onClick="loginAsInstitution"
-                    android:text="Login as an Educational Institution"
+                    android:onClick="loginAsStudent"
+                    android:text="Register as a student"
                     android:textColor="@android:color/white" />
 
             </RelativeLayout>
