@@ -202,11 +202,11 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
             ((TextView) findViewById(R.id.institution_name)).setText(data.getString(3));
             if (data.getString(1).equals("HU")) {
                 Drawable Icon = resize(ResourcesCompat.getDrawable(getResources(), R.drawable.hu, null));
-                ((TextView) findViewById(R.id.institution_name)).setCompoundDrawablesWithIntrinsicBounds(Icon, null, null, null);
+                ((TextView) findViewById(R.id.institution_icon)).setCompoundDrawablesWithIntrinsicBounds(Icon, null, null, null);
             }
             else if (data.getString(1).equals("UU")) {
                 Drawable Icon = resize(ResourcesCompat.getDrawable(getResources(), R.drawable.uu, null));
-                ((TextView) findViewById(R.id.institution_name)).setCompoundDrawablesWithIntrinsicBounds(Icon, null, null, null);
+                ((TextView) findViewById(R.id.institution_icon)).setCompoundDrawablesWithIntrinsicBounds(Icon, null, null, null);
             }
         }
     }

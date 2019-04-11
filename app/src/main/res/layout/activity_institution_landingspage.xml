@@ -18,13 +18,27 @@
         android:orientation="vertical"
         android:paddingBottom="0dp">
 
-        <TextView
-            android:id="@+id/institution_name"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_centerHorizontal="true"
-            android:text="" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+
+            <TextView
+                android:id="@+id/institution_icon"
+                android:layout_width="60dp"
+                android:layout_height="75dp"/>
+
+            <TextView
+                android:id="@+id/institution_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:layout_centerHorizontal="true"
+                android:text="" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
