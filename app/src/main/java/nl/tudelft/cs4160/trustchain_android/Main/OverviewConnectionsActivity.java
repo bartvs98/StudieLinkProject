@@ -73,11 +73,12 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
     private static final int BUFFER_SIZE = 65536;
     private PeerListAdapter incomingPeerAdapter;
     private PeerListAdapter outgoingPeerAdapter;
-//    private Spinner textSpinner;
     private TrustChainDBHelper dbHelper;
     private Network network;
     private PeerHandler peerHandler;
     private String wan = "";
+//    Temp variable
+    private String selectedMessage;
 
     /**
      * Initialize views, start send and receive threads if necessary.
@@ -97,7 +98,8 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
         if (savedInstanceState != null) {
             updatePeerLists();
         }
-
+        // TODO: 11/04/2019 Remove spinner logic. 
+//Temp part
         Spinner spinner = findViewById(R.id.text_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.message_array, android.R.layout.simple_spinner_item);
@@ -105,13 +107,22 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
     }
-
+//  Temp function
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-
+        selectedMessage = parent.getItemAtPosition(pos).toString();
     }
-
+//Temp function
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    //Temp function
+    public void onClickButton(View view){
+        if(selectedMessage instanceof String){
+            System.out.println("SelectedMessage IS a string!!");
+        } else {
+            System.out.println("SelectedMessage IS NOT a string!!");
+        }
+        System.out.println("\nMessage:\t" + selectedMessage + "\n");
     }
 
     @Override
