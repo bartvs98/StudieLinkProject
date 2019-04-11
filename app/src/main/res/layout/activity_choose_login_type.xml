@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:layout_centerHorizontal="true"
-                android:text="How do you want to login?" />
+                android:text="@string/login_choice" />
 
             <RelativeLayout
                 android:id="@+id/usernameWrapper"

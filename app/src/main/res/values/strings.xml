@@ -15,6 +15,20 @@
     <string name="connection_info_text">Info</string>
     <string name="institution_login">Login as an Educational Institution</string>
     <string name="student_register">Register as a student</string>
+    <string name="fingerprint_auth">Fingerprint Authentication</string>
+    <string name="device_name">device_name</string>
+    <string name="mac">MAC</string>
+    <string name="up">Up:</string>
+    <string name="down">Down:</string>
+    <string name="username_insert">Enter a username: </string>
+    <string name="confirm">Confirm</string>
+    <string name="login_credentials">Login with your credentials</string>
+    <string name="username">Username: </string>
+    <string name="password">Password: </string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="digid_register">Register once with DigiD</string>
+    <string name="login_choice">How do you want to login?</string>
 
     <!-- Trustchain -->
     <string name="title_activity_key">Key management</string>
