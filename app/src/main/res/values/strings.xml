@@ -97,6 +97,12 @@
     <string name="funds">Funds</string>
     <string name="transactions">Transactions</string>
 
+    <string-array name="message_array">
+        <item>Message placeholder</item>
+        <item>Is Collegegeld Betaald?</item>
+        <item>Collegegeld is Betaald.</item>
+    </string-array>
+
     <!--Fingerprint-->
     <string name="auth_text">Fingerprint Authentication</string>
     <string name="auth_instructions">Place your fingertip on the Home button to verify your identity</string>

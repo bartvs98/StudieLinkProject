@@ -18,8 +18,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -61,7 +65,7 @@ import nl.tudelft.cs4160.trustchain_android.QR.ScanQRActivity;
 
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.GENESIS_SEQ;
 
-public class OverviewConnectionsActivity extends AppCompatActivity implements NetworkCommunicationListener, PeerListener {
+public class OverviewConnectionsActivity extends AppCompatActivity implements NetworkCommunicationListener, PeerListener, AdapterView.OnItemSelectedListener {
 
     // The server ip address, this is the bootstrap phone that's always running
     public static String CONNECTABLE_ADDRESS = "130.161.211.254";
@@ -69,6 +73,7 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
     private static final int BUFFER_SIZE = 65536;
     private PeerListAdapter incomingPeerAdapter;
     private PeerListAdapter outgoingPeerAdapter;
+    private Spinner textSpinner;
     private TrustChainDBHelper dbHelper;
     private Network network;
     private PeerHandler peerHandler;
@@ -92,6 +97,21 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
         if (savedInstanceState != null) {
             updatePeerLists();
         }
+
+        Spinner spinner = (Spinner) findViewById(R.id.text_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.message_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     @Override
@@ -197,6 +217,7 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
         network.setNetworkCommunicationListener(this);
         network.updateConnectionType((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
         ((TextView) findViewById(R.id.peer_id)).setText(peerHandler.getHashId());
+//        textSpinner = findViewById(R.id.text_spinner);
     }
 
     public void setPeersFromSavedInstance(ArrayList<PeerAppToApp> peers) {

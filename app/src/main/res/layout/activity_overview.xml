@@ -112,6 +112,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Spinner
+                android:id="@+id/text_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/open_inbox_item"
                 android:layout_width="match_parent"
