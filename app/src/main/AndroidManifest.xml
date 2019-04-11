@@ -70,6 +70,10 @@
             tools:ignore="InnerclassSeparator" />
 
         <activity
+            android:name=".Main.StudentHomeActivity"
+            tools:ignore="InnerclassSeparator"/>
+
+        <activity
             android:name=".Main.InstitutionLoginActivity"
             android:noHistory="true"
             tools:ignore="InnerclassSeparator"
@@ -82,18 +86,6 @@
         <activity
             android:name=".Main.FindInstitutionActivity"
             tools:ignore="InnerclassSeparator"/>
-
-        <activity
-            android:name=".QR.ScanQRActivity"
-            tools:ignore="InnerclassSeparator" />
-
-        <activity
-            android:name=".QR.ExportWalletQRActivity"
-            tools:ignore="InnerclassSeparator" />
-
-        <activity
-            android:name=".Funds.FundsActivity"
-            tools:ignore="InnerclassSeparator" />
 
         <activity
             android:name=".Main.ChainExplorerInfoActivity"
