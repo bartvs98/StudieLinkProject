@@ -59,6 +59,7 @@ import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.BootstrapIPStorage;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.UserNameStorage;
 import nl.tudelft.cs4160.trustchain_android.Storage.InstitutionAccountStorage;
+import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccountStorage;
 import nl.tudelft.cs4160.trustchain_android.Storage.TrustChainDBHelper;
 
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.GENESIS_SEQ;
@@ -71,7 +72,7 @@ public class StudentHomeActivity extends AppCompatActivity implements NetworkCom
     private PeerListAdapter incomingPeerAdapter;
     private PeerListAdapter outgoingPeerAdapter;
     private TrustChainDBHelper dbHelper;
-    private InstitutionAccountStorage institutionAccountStorage;
+    private StudentAccountStorage studentAccountStorage;
     private Network network;
     private PeerHandler peerHandler;
     private String wan = "";
@@ -195,11 +196,12 @@ public class StudentHomeActivity extends AppCompatActivity implements NetworkCom
         network.setNetworkCommunicationListener(this);
         network.updateConnectionType((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 
-        institutionAccountStorage = new InstitutionAccountStorage(this);
-        Cursor data = institutionAccountStorage.getDataByUserName(peerHandler.getHashId());
+        studentAccountStorage = new StudentAccountStorage(this);
+        Cursor data = studentAccountStorage.getDataByUserName(peerHandler.getHashId());
 
         while(data.moveToNext()){
-            ((TextView) findViewById(R.id.institution_name)).setText(data.getString(3));
+            ((TextView) findViewById(R.id.full_name_view)).setText(data.getString(2) + " " + data.getString(3));
+            ((TextView) findViewById(R.id.age_view)).setText(data.getString(4));
         }
     }
 

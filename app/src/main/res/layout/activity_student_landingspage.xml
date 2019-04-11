@@ -55,7 +55,7 @@
                     android:layout_weight="1"
                     android:text="@string/signed_to" />
             </TableRow>
-            
+
         </TableLayout>
 
         <TextView
