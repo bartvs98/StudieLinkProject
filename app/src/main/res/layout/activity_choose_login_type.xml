@@ -44,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="200dp"
                     android:background="@color/colorPrimary"
+                    android:drawableRight="@drawable/school"
                     android:onClick="loginAsInstitution"
                     android:text="Login as an Educational Institution"
                     android:textColor="@android:color/white" />
@@ -63,6 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorPrimary"
+                    android:drawableEnd="@drawable/student"
                     android:onClick="loginAsStudent"
                     android:text="Register as a student"
                     android:textColor="@android:color/white" />
