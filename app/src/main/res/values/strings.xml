@@ -103,6 +103,11 @@
     <string name="auth_instructions">Place your fingertip on the Home button to verify your identity</string>
     <!--End Fingerprint-->
 
+    <string name="registered_as">Registered as:</string>
+    <string name="age">Age:</string>
+    <string name="signed">Signed up for:</string>
+    <string name="signed_to">N/A</string>
+
     <string name="add_institution">Connect to institution</string>
     <string name="connected_institutions">Connected institutions:</string>
 

@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Main.OverviewConnectionsActivity">
+    tools:context=".Main.StudentHomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +19,44 @@
         android:paddingBottom="0dp"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="95dp">
+
+        <TableLayout
+            android:id="@+id/overviewButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow>
+                <TextView
+                    android:layout_weight="1"
+                    android:text="@string/registered_as" />
+
+                <TextView
+                    android:id="@+id/full_name_view"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_weight="1"
+                    android:text="@string/age" />
+
+                <TextView
+                    android:id="@+id/age_view"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_weight="1"
+                    android:text="@string/signed" />
+
+                <TextView
+                    android:id="@+id/signed_to"
+                    android:layout_weight="1"
+                    android:text="@string/signed_to" />
+            </TableRow>
+
+        </TableLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -49,7 +87,7 @@
                 android:layout_height="50dp"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:background="@color/colorPrimary"
-                android:onClick="onClickOpenInbox"
+                android:onClick="onClickConnectInstitution"
                 android:text="@string/add_institution"
                 android:textColor="@android:color/white" />
 
