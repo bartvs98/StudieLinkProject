@@ -103,4 +103,7 @@
     <string name="auth_instructions">Place your fingertip on the Home button to verify your identity</string>
     <!--End Fingerprint-->
 
+    <string name="add_institution">Connect to institution</string>
+    <string name="connected_institutions">Connected institutions:</string>
+
 </resources>

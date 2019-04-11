@@ -113,10 +113,10 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
      */
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-//            case R.id.chain_menu:
-//                Intent chainExplorerActivity = new Intent(this, ChainExplorerActivity.class);
-//                startActivity(chainExplorerActivity);
-//                return true;
+            case R.id.chain_menu:
+                Intent chainExplorerActivity = new Intent(this, ChainExplorerActivity.class);
+                startActivity(chainExplorerActivity);
+                return true;
 //            case R.id.connection_explanation_menu:
 //                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
 //                startActivity(ConnectionExplanationActivity);
@@ -195,7 +195,7 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
         Cursor data = institutionAccountStorage.getDataByUserName(peerHandler.getHashId());
 
         while(data.moveToNext()){
-            ((TextView) findViewById(R.id.homepageText)).setText(data.getString(3));
+            ((TextView) findViewById(R.id.institution_name)).setText(data.getString(3));
         }
     }
 
