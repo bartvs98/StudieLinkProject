@@ -158,7 +158,8 @@ public class StudentHomeActivity extends AppCompatActivity implements NetworkCom
             kp = Key.createAndSaveKeys(getApplicationContext());
         }
         if (isStartedFirstTime(dbHelper, kp)) {
-            MessageProto.TrustChainBlock block = TrustChainBlockHelper.createGenesisBlock(kp);
+            MessageProto.TrustChainBlock block = TrustChainBlockHelper
+                    .createGenesisBlockWithTransaction(kp, "First transaction message");
             dbHelper.insertInDB(block);
         }
     }

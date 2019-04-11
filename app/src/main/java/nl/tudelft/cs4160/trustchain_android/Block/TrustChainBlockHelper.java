@@ -7,6 +7,7 @@ import com.google.protobuf.ByteString;
 import org.libsodium.jni.Sodium;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -35,6 +36,24 @@ public class TrustChainBlockHelper {
     public static MessageProto.TrustChainBlock createGenesisBlock(DualSecret kp) {
         MessageProto.TrustChainBlock block = MessageProto.TrustChainBlock.newBuilder()
                 .setTransaction(ByteString.EMPTY)
+                .setPublicKey(ByteString.copyFrom(kp.getPublicKeyPair().toBytes()))
+                .setSequenceNumber(GENESIS_SEQ)
+                .setLinkPublicKey(EMPTY_PK)
+                .setLinkSequenceNumber(UNKNOWN_SEQ)
+                .setPreviousHash(GENESIS_HASH)
+                .setSignature(EMPTY_SIG)
+                .build();
+        block = sign(block, kp.getSigningKey());
+        return block;
+    }
+
+    /**
+     * Creates a TrustChain genesis block using protocol buffers.
+     * @return block - A MessageProto.TrustChainBlockHelper
+     */
+    public static MessageProto.TrustChainBlock createGenesisBlockWithTransaction(DualSecret kp, String firstTransactionMsg) {
+        MessageProto.TrustChainBlock block = MessageProto.TrustChainBlock.newBuilder()
+                .setTransaction(ByteString.copyFrom(firstTransactionMsg, Charset.defaultCharset()))
                 .setPublicKey(ByteString.copyFrom(kp.getPublicKeyPair().toBytes()))
                 .setSequenceNumber(GENESIS_SEQ)
                 .setLinkPublicKey(EMPTY_PK)
