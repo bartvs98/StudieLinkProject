@@ -6,7 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,6 +17,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
@@ -196,6 +200,14 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
 
         while(data.moveToNext()){
             ((TextView) findViewById(R.id.institution_name)).setText(data.getString(3));
+            if (data.getString(1).equals("HU")) {
+                Drawable Icon = resize(ResourcesCompat.getDrawable(getResources(), R.drawable.hu, null));
+                ((TextView) findViewById(R.id.institution_name)).setCompoundDrawablesWithIntrinsicBounds(Icon, null, null, null);
+            }
+            else if (data.getString(1).equals("UU")) {
+                Drawable Icon = resize(ResourcesCompat.getDrawable(getResources(), R.drawable.uu, null));
+                ((TextView) findViewById(R.id.institution_name)).setCompoundDrawablesWithIntrinsicBounds(Icon, null, null, null);
+            }
         }
     }
 
@@ -205,6 +217,12 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
 
     public void setPeerListener(PeerListener peerListener) {
         getPeerHandler().setPeerListener(peerListener);
+    }
+
+    private Drawable resize(Drawable image) {
+        Bitmap b = ((BitmapDrawable)image).getBitmap();
+        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 60, 60, false);
+        return new BitmapDrawable(getResources(), bitmapResized);
     }
 
     /**

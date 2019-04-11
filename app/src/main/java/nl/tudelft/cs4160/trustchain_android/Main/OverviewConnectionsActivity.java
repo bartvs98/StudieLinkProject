@@ -114,13 +114,13 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
                 Intent chainExplorerActivity = new Intent(this, ChainExplorerActivity.class);
                 startActivity(chainExplorerActivity);
                 return true;
-            case R.id.connection_explanation_menu:
-                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
-                startActivity(ConnectionExplanationActivity);
-                return true;
-            case R.id.find_peer:
-                startActivity(new Intent(this, FindInstitutionActivity.class));
-                return true;
+//            case R.id.connection_explanation_menu:
+//                Intent ConnectionExplanationActivity = new Intent(this, ConnectionExplanationActivity.class);
+//                startActivity(ConnectionExplanationActivity);
+//                return true;
+//            case R.id.find_peer:
+//                startActivity(new Intent(this, FindInstitutionActivity.class));
+//                return true;
             case R.id.clear_data:
                 ((ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE))
                         .clearApplicationUserData();

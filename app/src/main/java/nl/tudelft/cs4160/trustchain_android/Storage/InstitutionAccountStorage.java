@@ -33,8 +33,8 @@ public class InstitutionAccountStorage extends SQLiteOpenHelper {
 
         db.execSQL(sql);
 
-        InstitutionAccount institutionAccount1 = new InstitutionAccount("HU", "admin01", "Hogeschool Utrecht");
-        InstitutionAccount institutionAccount2 = new InstitutionAccount("UU", "admin01", "Universiteit Utrecht");
+        InstitutionAccount institutionAccount1 = new InstitutionAccount("hu", "admin01", "Hogeschool Utrecht");
+        InstitutionAccount institutionAccount2 = new InstitutionAccount("uu", "admin01", "Universiteit Utrecht");
 
         insert(db, institutionAccount1);
         insert(db, institutionAccount2);

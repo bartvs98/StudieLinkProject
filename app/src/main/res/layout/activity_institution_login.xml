@@ -120,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/rounded_corners"
                 android:onClick="LoginAsInstitution"
                 android:text="Login"
                 android:textColor="@android:color/white" />
