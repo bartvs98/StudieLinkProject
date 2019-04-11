@@ -61,10 +61,12 @@ import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.G
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.createBlock;
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.sign;
 
-public class TrustChainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, CrawlRequestListener {
+// used implement CompoundButton.OnCheckedChangeListener
+
+public class TrustChainActivity extends AppCompatActivity implements CrawlRequestListener {
     private final static String TAG = TrustChainActivity.class.toString();
     private Context context;
-    boolean developerMode = false;
+//    boolean developerMode = false;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -267,22 +269,22 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
      */
     private void initVariables() {
         thisActivity = this;
-        localIPText = findViewById(R.id.my_local_ip);
-        externalIPText = findViewById(R.id.my_external_ip);
+//        localIPText = findViewById(R.id.my_local_ip);
+//        externalIPText = findViewById(R.id.my_external_ip);
         statusText = findViewById(R.id.status);
         statusText.setMovementMethod(new ScrollingMovementMethod());
 
-        editTextDestinationIP = findViewById(R.id.destination_IP);
-        editTextDestinationPort = findViewById(R.id.destination_port);
+//        editTextDestinationIP = findViewById(R.id.destination_IP);
+//        editTextDestinationPort = findViewById(R.id.destination_port);
 //        messageEditText = findViewById(R.id.message_edit_text);
         textView_message = findViewById(R.id.textView_message);
-        extraInformationPanel = findViewById(R.id.extra_information_panel);
-        developerModeText = findViewById(R.id.developer_mode_text);
+//        extraInformationPanel = findViewById(R.id.extra_information_panel);
+//        developerModeText = findViewById(R.id.developer_mode_text);
         mRecyclerView = findViewById(R.id.mutualBlocksRecyclerView);
-        switchDeveloperMode = findViewById(R.id.switch_developer_mode);
-        switchDeveloperMode.setOnCheckedChangeListener(this);
-        editTextDestinationIP = (EditText) findViewById(R.id.destination_IP);
-        editTextDestinationPort = (EditText) findViewById(R.id.destination_port);
+//        switchDeveloperMode = findViewById(R.id.switch_developer_mode);
+//        switchDeveloperMode.setOnCheckedChangeListener(this);
+//        editTextDestinationIP = (EditText) findViewById(R.id.destination_IP);
+//        editTextDestinationPort = (EditText) findViewById(R.id.destination_port);
 
         dbHelper = new TrustChainDBHelper(this);
     }
@@ -475,17 +477,17 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
      * @param buttonView
      * @param isChecked
      */
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        developerMode = isChecked;
-        if (isChecked) {
-            extraInformationPanel.setVisibility(View.VISIBLE);
-            developerModeText.setTextColor(getResources().getColor(R.color.colorAccent));
-        } else {
-            extraInformationPanel.setVisibility(View.GONE);
-            developerModeText.setTextColor(getResources().getColor(R.color.colorGray));
-        }
-    }
+//    @Override
+//    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//        developerMode = isChecked;
+//        if (isChecked) {
+//            extraInformationPanel.setVisibility(View.VISIBLE);
+//            developerModeText.setTextColor(getResources().getColor(R.color.colorAccent));
+//        } else {
+//            extraInformationPanel.setVisibility(View.GONE);
+//            developerModeText.setTextColor(getResources().getColor(R.color.colorGray));
+//        }
+//    }
 
 
     /**

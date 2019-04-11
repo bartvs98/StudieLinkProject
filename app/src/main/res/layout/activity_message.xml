@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:id="@+id/myCoordinatorLayout"
     tools:context="nl.tudelft.cs4160.trustchain_android.Main.TrustChainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/developer_mode_text"
-            android:layout_width="wrap_content"
-            android:textColor="@color/colorGray"
-            android:layout_height="wrap_content"
-            android:text="@string/developer_mode" />
+        <!--<TextView-->
+        <!--android:id="@+id/developer_mode_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:textColor="@color/colorGray"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/developer_mode" />-->
 
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/switch_developer_mode"
-            android:layout_width="50dp"
-            android:layout_height="20dp" />
+        <!--<android.support.v7.widget.SwitchCompat-->
+        <!--android:id="@+id/switch_developer_mode"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="20dp" />-->
     </LinearLayout>
 
     <LinearLayout
@@ -34,57 +35,57 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!--<LinearLayout-->
+        <!--android:id="@+id/extra_information_panel"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="gone"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/my_external_ip" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/my_external_ip"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/my_local_ip" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/my_local_ip"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:text="@string/connect_to" />-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/destination_IP"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/connect_ip_hint" />-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/destination_port"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/default_port" />-->
+
+        <!--</LinearLayout>-->
+
         <LinearLayout
-            android:id="@+id/extra_information_panel"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/my_external_ip" />
-
-            <TextView
-                android:id="@+id/my_external_ip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/my_local_ip" />
-
-            <TextView
-                android:id="@+id/my_local_ip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="@string/connect_to" />
-
-            <EditText
-                android:id="@+id/destination_IP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/connect_ip_hint" />
-
-            <EditText
-                android:id="@+id/destination_port"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/default_port" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
             <Button
                 android:id="@+id/view_chain_button"
@@ -124,6 +125,18 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!--<Spinner-->
+                <!--android:id="@+id/text_spinner"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content" />-->
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -139,34 +152,34 @@
 
         <android.widget.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             android:orientation="vertical"
             tools:context="nl.tudelft.cs4160.trustchain_android.Main.ChainExplorerActivity">
 
             <TextView
                 android:id="@+id/status"
                 android:layout_width="match_parent"
-                android:visibility="gone"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
         </android.widget.ScrollView>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/mutualBlocksRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"/>
+            android:scrollbars="vertical" />
 
         <!--<EditText-->
-            <!--android:id="@+id/message_edit_text"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:autoText="false"-->
-            <!--android:inputType="text"-->
-            <!--android:text="Vraag Bewijs Betaald Collegegeld"-->
-            <!--android:textColor="@android:color/black" />-->
+        <!--android:id="@+id/message_edit_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:autoText="false"-->
+        <!--android:inputType="text"-->
+        <!--android:text="Vraag Bewijs Betaald Collegegeld"-->
+        <!--android:textColor="@android:color/black" />-->
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
