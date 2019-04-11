@@ -21,10 +21,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,7 +66,7 @@ import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.s
 
 // used implement CompoundButton.OnCheckedChangeListener
 
-public class TrustChainActivity extends AppCompatActivity implements CrawlRequestListener {
+public class TrustChainActivity extends AppCompatActivity implements CrawlRequestListener, AdapterView.OnItemSelectedListener {
     private final static String TAG = TrustChainActivity.class.toString();
     private Context context;
 //    boolean developerMode = false;
@@ -76,14 +79,14 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
     TextView externalIPText;
     TextView localIPText;
     TextView statusText;
-    TextView developerModeText;
+//    TextView developerModeText;
     Button sendButton;
-    EditText editTextDestinationIP;
-    EditText editTextDestinationPort;
+//    EditText editTextDestinationIP;
+//    EditText editTextDestinationPort;
 //    EditText messageEditText;
     TextView textView_message;
-    SwitchCompat switchDeveloperMode;
-    LinearLayout extraInformationPanel;
+//    SwitchCompat switchDeveloperMode;
+//    LinearLayout extraInformationPanel;
     TrustChainActivity thisActivity;
     DualSecret kp;
     TrustChainDBHelper dbHelper;
@@ -169,6 +172,20 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
         init();
         initializeMutualBlockRecycleView();
         requestChain();
+
+        Spinner spinner = findViewById(R.id.text_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.message_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner .setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+    }
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     /**

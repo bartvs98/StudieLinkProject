@@ -73,7 +73,7 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
     private static final int BUFFER_SIZE = 65536;
     private PeerListAdapter incomingPeerAdapter;
     private PeerListAdapter outgoingPeerAdapter;
-    private Spinner textSpinner;
+//    private Spinner textSpinner;
     private TrustChainDBHelper dbHelper;
     private Network network;
     private PeerHandler peerHandler;
@@ -98,7 +98,7 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
             updatePeerLists();
         }
 
-        Spinner spinner = (Spinner) findViewById(R.id.text_spinner);
+        Spinner spinner = findViewById(R.id.text_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.message_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
