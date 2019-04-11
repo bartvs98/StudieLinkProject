@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:layout_centerHorizontal="true"
-                android:text="How do you want to login?" />
+                android:text="@string/login_choice" />
 
             <RelativeLayout
                 android:id="@+id/usernameWrapper"
@@ -42,10 +42,13 @@
                     android:id="@+id/institutionLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingEnd="30dp"
+                    android:paddingStart="30dp"
                     android:layout_marginTop="200dp"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/rounded_corners"
+                    android:drawableEnd="@drawable/school"
                     android:onClick="loginAsInstitution"
-                    android:text="Login as an Educational Institution"
+                    android:text="@string/institution_login"
                     android:textColor="@android:color/white" />
 
             </RelativeLayout>
@@ -61,10 +64,13 @@
                     android:id="@+id/studentLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingEnd="30dp"
+                    android:paddingStart="30dp"
                     android:layout_marginTop="5dp"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/rounded_corners"
+                    android:drawableEnd="@drawable/student"
                     android:onClick="loginAsStudent"
-                    android:text="Register as a student"
+                    android:text="@string/student_register"
                     android:textColor="@android:color/white" />
 
             </RelativeLayout>

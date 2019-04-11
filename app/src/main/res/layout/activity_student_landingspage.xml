@@ -86,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/rounded_corners"
                 android:onClick="onClickConnectInstitution"
                 android:text="@string/add_institution"
                 android:textColor="@android:color/white" />
@@ -95,7 +95,7 @@
                 android:id="@+id/open_inbox_item"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/rounded_corners"
                 android:onClick="onClickOpenInbox"
                 android:text="@string/inbox"
                 android:textColor="@android:color/white" />
