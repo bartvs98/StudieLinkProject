@@ -76,6 +76,8 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
     private Network network;
     private InboxItem inboxItemOtherPeer;
     private TrustChainDBHelper DBHelper;
+    private String selectedMessage;
+
     TextView externalIPText;
     TextView localIPText;
     TextView statusText;
@@ -182,7 +184,7 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-
+        selectedMessage = parent.getItemAtPosition(pos).toString();
     }
     public void onNothingSelected(AdapterView<?> parent) {
 
@@ -428,6 +430,8 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
 
         byte[] publicKey = Key.loadKeys(this).getPublicKeyPair().toBytes();
         byte[] transactionData = textView_message.getText().toString().getBytes("UTF-8");
+        byte[] transactionData2 = selectedMessage.getBytes("UTF-8");
+        // TODO: 11/04/2019 Revert spinner to default value.
         final MessageProto.TrustChainBlock block = createBlock(transactionData, DBHelper, publicKey, null, ByteArrayConverter.hexStringToByteArray(inboxItemOtherPeer.getPublicKey()));
         final MessageProto.TrustChainBlock signedBlock = TrustChainBlockHelper.sign(block, Key.loadKeys(getApplicationContext()).getSigningKey());
 //        messageEditText.setText("");
