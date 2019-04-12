@@ -98,12 +98,23 @@ public class FindInstitutionActivity extends AppCompatActivity {
                     Log.i("Bootstrap IP Adress: ", res.toString());
                     throw new Exception("Bootstrap IP is not a valid IP4 or IP6 address.");
                 }
-                Intent returnIntent = new Intent();
+//                Intent returnIntent = new Intent();
                 BootstrapIPStorage.setIP(FindInstitutionActivity.this, result.toString());
 
-                returnIntent.putExtra("ConnectableAddress", result.toString());
-                setResult(OverviewConnectionsActivity.RESULT_OK,returnIntent);
-                finish();
+                new AlertDialog.Builder(FindInstitutionActivity.this)
+                        .setTitle("Success")
+                        .setMessage(result.toString())
+                        .setNeutralButton(android.R.string.ok, null)
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialogInterface) {
+                                FindInstitutionActivity.this.finish();
+                            }
+                        }).show();
+
+//                returnIntent.putExtra("ConnectableAddress", result.toString());
+//                setResult(OverviewConnectionsActivity.RESULT_OK,returnIntent);
+//                finish();
             } catch (Exception e){
                 Toast.makeText(FindInstitutionActivity.this, "The bootstrap IP address is not a valid IP address: " + result.toString(), Toast.LENGTH_SHORT).show();
                 new AlertDialog.Builder(FindInstitutionActivity.this)

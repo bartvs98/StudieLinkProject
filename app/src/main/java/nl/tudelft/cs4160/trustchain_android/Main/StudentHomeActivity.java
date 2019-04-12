@@ -231,9 +231,9 @@ public class StudentHomeActivity extends AppCompatActivity implements NetworkCom
      * Initialize the inboxItem lists.
      */
     private void initPeerLists() {
-        ListView incomingPeerConnectionListView = findViewById(R.id.incoming_peer_connection_list_view);
-        ListView outgoingPeerConnectionListView = findViewById(R.id.outgoing_peer_connection_list_view);
-        incomingPeerAdapter = new PeerListAdapter(getApplicationContext(), R.layout.peer_connection_list_item, peerHandler.getIncomingList(), PeerAppToApp.INCOMING, (CoordinatorLayout) findViewById(R.id.myCoordinatorLayout));
+        ListView incomingPeerConnectionListView = findViewById(R.id.incomming_list);
+//        ListView outgoingPeerConnectionListView = findViewById(R.id.outgoing_peer_connection_list_view);
+        incomingPeerAdapter = new PeerListAdapter(getApplicationContext(), R.layout.peer_connection_list_item, peerHandler.getIncomingList(), PeerAppToApp.INCOMING, (CoordinatorLayout) findViewById(R.id.studentHomeLayout));
         incomingPeerConnectionListView.setAdapter(incomingPeerAdapter);
 //        outgoingPeerAdapter = new PeerListAdapter(getApplicationContext(), R.layout.peer_connection_list_item, peerHandler.getOutgoingList(), PeerAppToApp.OUTGOING, (CoordinatorLayout) findViewById(R.id.myCoordinatorLayout));
 //        outgoingPeerConnectionListView.setAdapter(outgoingPeerAdapter);
@@ -587,7 +587,7 @@ public class StudentHomeActivity extends AppCompatActivity implements NetworkCom
      */
     @Override
     public void updateIncomingPeers() {
-//        incomingPeerAdapter.notifyDataSetChanged();
+        incomingPeerAdapter.notifyDataSetChanged();
     }
 
     /**
