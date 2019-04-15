@@ -65,7 +65,9 @@ import nl.tudelft.cs4160.trustchain_android.QR.ScanQRActivity;
 
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.GENESIS_SEQ;
 
-public class OverviewConnectionsActivity extends AppCompatActivity implements NetworkCommunicationListener, PeerListener, AdapterView.OnItemSelectedListener {
+//AdapterView.OnItemSelectedListener
+
+public class OverviewConnectionsActivity extends AppCompatActivity implements NetworkCommunicationListener, PeerListener {
 
     // The server ip address, this is the bootstrap phone that's always running
     public static String CONNECTABLE_ADDRESS = "130.161.211.254";
@@ -77,8 +79,6 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
     private Network network;
     private PeerHandler peerHandler;
     private String wan = "";
-//    Temp variable
-    private String selectedMessage;
 
     /**
      * Initialize views, start send and receive threads if necessary.
@@ -98,31 +98,6 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
         if (savedInstanceState != null) {
             updatePeerLists();
         }
-        // TODO: 11/04/2019 Remove spinner logic. 
-//Temp part
-        Spinner spinner = findViewById(R.id.text_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.message_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-    }
-//  Temp function
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        selectedMessage = parent.getItemAtPosition(pos).toString();
-    }
-//Temp function
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-    //Temp function
-    public void onClickButton(View view){
-        if(selectedMessage instanceof String){
-            System.out.println("SelectedMessage IS a string!!");
-        } else {
-            System.out.println("SelectedMessage IS NOT a string!!");
-        }
-        System.out.println("\nMessage:\t" + selectedMessage + "\n");
     }
 
     @Override
