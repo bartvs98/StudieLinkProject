@@ -66,10 +66,10 @@ import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.s
 
 // used implement CompoundButton.OnCheckedChangeListener
 
-public class TrustChainActivity extends AppCompatActivity implements CrawlRequestListener, AdapterView.OnItemSelectedListener {
+public class TrustChainActivity extends AppCompatActivity implements CrawlRequestListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
     private final static String TAG = TrustChainActivity.class.toString();
     private Context context;
-//    boolean developerMode = false;
+    boolean developerMode = false;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -81,14 +81,15 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
     TextView externalIPText;
     TextView localIPText;
     TextView statusText;
-//    TextView developerModeText;
+    TextView developerModeText;
     Button sendButton;
-//    EditText editTextDestinationIP;
-//    EditText editTextDestinationPort;
+    EditText editTextDestinationIP;
+    EditText editTextDestinationPort;
 //    EditText messageEditText;
     TextView textView_message;
-//    SwitchCompat switchDeveloperMode;
-//    LinearLayout extraInformationPanel;
+    Spinner text_spinner;
+    SwitchCompat switchDeveloperMode;
+    LinearLayout extraInformationPanel;
     TrustChainActivity thisActivity;
     DualSecret kp;
     TrustChainDBHelper dbHelper;
@@ -175,12 +176,12 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
         initializeMutualBlockRecycleView();
         requestChain();
 
-        Spinner spinner = findViewById(R.id.text_spinner);
+        text_spinner = findViewById(R.id.text_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.message_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner .setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        text_spinner .setAdapter(adapter);
+        text_spinner.setOnItemSelectedListener(this);
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -288,22 +289,23 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
      */
     private void initVariables() {
         thisActivity = this;
-//        localIPText = findViewById(R.id.my_local_ip);
-//        externalIPText = findViewById(R.id.my_external_ip);
+        localIPText = findViewById(R.id.my_local_ip);
+        externalIPText = findViewById(R.id.my_external_ip);
         statusText = findViewById(R.id.status);
         statusText.setMovementMethod(new ScrollingMovementMethod());
 
-//        editTextDestinationIP = findViewById(R.id.destination_IP);
-//        editTextDestinationPort = findViewById(R.id.destination_port);
+        editTextDestinationIP = findViewById(R.id.destination_IP);
+        editTextDestinationPort = findViewById(R.id.destination_port);
 //        messageEditText = findViewById(R.id.message_edit_text);
         textView_message = findViewById(R.id.textView_message);
-//        extraInformationPanel = findViewById(R.id.extra_information_panel);
-//        developerModeText = findViewById(R.id.developer_mode_text);
+        extraInformationPanel = findViewById(R.id.extra_information_panel);
+        developerModeText = findViewById(R.id.developer_mode_text);
         mRecyclerView = findViewById(R.id.mutualBlocksRecyclerView);
-//        switchDeveloperMode = findViewById(R.id.switch_developer_mode);
-//        switchDeveloperMode.setOnCheckedChangeListener(this);
-//        editTextDestinationIP = (EditText) findViewById(R.id.destination_IP);
-//        editTextDestinationPort = (EditText) findViewById(R.id.destination_port);
+        switchDeveloperMode = findViewById(R.id.switch_developer_mode);
+        switchDeveloperMode.setOnCheckedChangeListener(this);
+        editTextDestinationIP = (EditText) findViewById(R.id.destination_IP);
+        editTextDestinationPort = (EditText) findViewById(R.id.destination_port);
+
 
         dbHelper = new TrustChainDBHelper(this);
     }
@@ -429,10 +431,10 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
         Log.d("testLogs", "onClickSend");
 
         byte[] publicKey = Key.loadKeys(this).getPublicKeyPair().toBytes();
-        byte[] transactionData = textView_message.getText().toString().getBytes("UTF-8");
+//        byte[] transactionData = textView_message.getText().toString().getBytes("UTF-8");
         byte[] transactionData2 = selectedMessage.getBytes("UTF-8");
         // TODO: 11/04/2019 Revert spinner to default value.
-        final MessageProto.TrustChainBlock block = createBlock(transactionData, DBHelper, publicKey, null, ByteArrayConverter.hexStringToByteArray(inboxItemOtherPeer.getPublicKey()));
+        final MessageProto.TrustChainBlock block = createBlock(transactionData2, DBHelper, publicKey, null, ByteArrayConverter.hexStringToByteArray(inboxItemOtherPeer.getPublicKey()));
         final MessageProto.TrustChainBlock signedBlock = TrustChainBlockHelper.sign(block, Key.loadKeys(getApplicationContext()).getSigningKey());
 //        messageEditText.setText("");
 //        messageEditText.clearFocus();
@@ -498,17 +500,17 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
      * @param buttonView
      * @param isChecked
      */
-//    @Override
-//    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//        developerMode = isChecked;
-//        if (isChecked) {
-//            extraInformationPanel.setVisibility(View.VISIBLE);
-//            developerModeText.setTextColor(getResources().getColor(R.color.colorAccent));
-//        } else {
-//            extraInformationPanel.setVisibility(View.GONE);
-//            developerModeText.setTextColor(getResources().getColor(R.color.colorGray));
-//        }
-//    }
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        developerMode = isChecked;
+        if (isChecked) {
+            extraInformationPanel.setVisibility(View.VISIBLE);
+            developerModeText.setTextColor(getResources().getColor(R.color.colorAccent));
+        } else {
+            extraInformationPanel.setVisibility(View.GONE);
+            developerModeText.setTextColor(getResources().getColor(R.color.colorGray));
+        }
+    }
 
 
     /**

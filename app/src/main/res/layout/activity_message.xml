@@ -17,17 +17,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <!--<TextView-->
-        <!--android:id="@+id/developer_mode_text"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:textColor="@color/colorGray"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/developer_mode" />-->
+        <TextView
+        android:id="@+id/developer_mode_text"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorGray"
+        android:layout_height="wrap_content"
+        android:text="@string/developer_mode" />
 
-        <!--<android.support.v7.widget.SwitchCompat-->
-        <!--android:id="@+id/switch_developer_mode"-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="20dp" />-->
+        <android.support.v7.widget.SwitchCompat
+        android:id="@+id/switch_developer_mode"
+        android:layout_width="50dp"
+        android:layout_height="20dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -35,52 +35,52 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!--<LinearLayout-->
-        <!--android:id="@+id/extra_information_panel"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:visibility="gone"-->
-        <!--android:orientation="vertical">-->
+        <LinearLayout
+        android:id="@+id/extra_information_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
 
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/my_external_ip" />-->
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_external_ip" />
 
-        <!--<TextView-->
-        <!--android:id="@+id/my_external_ip"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
+        <TextView
+        android:id="@+id/my_external_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/my_local_ip" />-->
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_local_ip" />
 
-        <!--<TextView-->
-        <!--android:id="@+id/my_local_ip"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
+        <TextView
+        android:id="@+id/my_local_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="40dp"-->
-        <!--android:text="@string/connect_to" />-->
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/connect_to" />
 
-        <!--<EditText-->
-        <!--android:id="@+id/destination_IP"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:hint="@string/connect_ip_hint" />-->
+        <EditText
+        android:id="@+id/destination_IP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/connect_ip_hint" />
 
-        <!--<EditText-->
-        <!--android:id="@+id/destination_port"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/default_port" />-->
+        <EditText
+        android:id="@+id/destination_port"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default_port" />
 
-        <!--</LinearLayout>-->
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -105,12 +105,10 @@
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView_message"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:text="Is Collegegeld Betaald?" />
+            <Spinner
+                android:id="@+id/text_spinner"
+                android:layout_width="281dp"
+                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/send_button"
@@ -129,11 +127,12 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/text_spinner"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
-
+            <TextView
+                android:id="@+id/textView_message"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="Is Collegegeld Betaald?" />
         </LinearLayout>
 
         <LinearLayout
