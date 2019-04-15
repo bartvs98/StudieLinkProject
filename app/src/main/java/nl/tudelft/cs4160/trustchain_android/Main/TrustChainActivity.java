@@ -66,10 +66,9 @@ import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.s
 
 // used implement CompoundButton.OnCheckedChangeListener
 
-public class TrustChainActivity extends AppCompatActivity implements CrawlRequestListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
+public class TrustChainActivity extends AppCompatActivity implements CrawlRequestListener, AdapterView.OnItemSelectedListener {
     private final static String TAG = TrustChainActivity.class.toString();
     private Context context;
-    boolean developerMode = false;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -78,17 +77,9 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
     private TrustChainDBHelper DBHelper;
     private String selectedMessage;
 
-    TextView externalIPText;
-    TextView localIPText;
     TextView statusText;
-    TextView developerModeText;
     Button sendButton;
-    EditText editTextDestinationIP;
-    EditText editTextDestinationPort;
-//    EditText messageEditText;
-    TextView textView_message;
     Spinner text_spinner;
-    SwitchCompat switchDeveloperMode;
     LinearLayout extraInformationPanel;
     TrustChainActivity thisActivity;
     DualSecret kp;
@@ -289,24 +280,10 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
      */
     private void initVariables() {
         thisActivity = this;
-        localIPText = findViewById(R.id.my_local_ip);
-        externalIPText = findViewById(R.id.my_external_ip);
         statusText = findViewById(R.id.status);
         statusText.setMovementMethod(new ScrollingMovementMethod());
-
-        editTextDestinationIP = findViewById(R.id.destination_IP);
-        editTextDestinationPort = findViewById(R.id.destination_port);
-//        messageEditText = findViewById(R.id.message_edit_text);
-        textView_message = findViewById(R.id.textView_message);
         extraInformationPanel = findViewById(R.id.extra_information_panel);
-        developerModeText = findViewById(R.id.developer_mode_text);
         mRecyclerView = findViewById(R.id.mutualBlocksRecyclerView);
-        switchDeveloperMode = findViewById(R.id.switch_developer_mode);
-        switchDeveloperMode.setOnCheckedChangeListener(this);
-        editTextDestinationIP = (EditText) findViewById(R.id.destination_IP);
-        editTextDestinationPort = (EditText) findViewById(R.id.destination_port);
-
-
         dbHelper = new TrustChainDBHelper(this);
     }
 
@@ -314,50 +291,7 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
      * Initialize the ip addresses and the network.
      */
     private void init() {
-        updateIP();
-        updateLocalIPField(getLocalIPAddress());
         network = Network.getInstance(getApplicationContext());
-    }
-
-    /**
-     * Updates the external IP address textfield to the given IP address.
-     */
-    public void updateExternalIPField(String ipAddress) {
-        externalIPText.setText(ipAddress);
-        Log.i(TAG, "Updated external IP Address: " + ipAddress);
-    }
-
-    /**
-     * Updates the internal IP address textfield to the given IP address.
-     */
-    public void updateLocalIPField(String ipAddress) {
-        localIPText.setText(ipAddress);
-        Log.i(TAG, "Updated local IP Address:" + ipAddress);
-    }
-
-    /**
-     * Finds the external IP address of this device by making an API call to https://www.ipify.org/.
-     * The networking runs on a separate thread.
-     */
-    public void updateIP() {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://api.ipify.org").openStream(), "UTF-8").useDelimiter("\\A")) {
-                    final String ip = s.next();
-                    // new thread to handle UI updates
-                    TrustChainActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateExternalIPField(ip);
-                        }
-                    });
-                } catch (java.io.IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();
     }
 
     /**
@@ -433,7 +367,8 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
         byte[] publicKey = Key.loadKeys(this).getPublicKeyPair().toBytes();
 //        byte[] transactionData = textView_message.getText().toString().getBytes("UTF-8");
         byte[] transactionData2 = selectedMessage.getBytes("UTF-8");
-        // TODO: 11/04/2019 Revert spinner to default value.
+        // TODO: 11/04/2019 Revert spinner to default value after sending.
+        // TODO: 15/04/2019 Remove first value in spinner array in strings.xml. 
         final MessageProto.TrustChainBlock block = createBlock(transactionData2, DBHelper, publicKey, null, ByteArrayConverter.hexStringToByteArray(inboxItemOtherPeer.getPublicKey()));
         final MessageProto.TrustChainBlock signedBlock = TrustChainBlockHelper.sign(block, Key.loadKeys(getApplicationContext()).getSigningKey());
 //        messageEditText.setText("");
@@ -494,25 +429,7 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
             }
         });
     }
-
-    /**
-     * Toggle developer options to connect manually to an ip.
-     * @param buttonView
-     * @param isChecked
-     */
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        developerMode = isChecked;
-        if (isChecked) {
-            extraInformationPanel.setVisibility(View.VISIBLE);
-            developerModeText.setTextColor(getResources().getColor(R.color.colorAccent));
-        } else {
-            extraInformationPanel.setVisibility(View.GONE);
-            developerModeText.setTextColor(getResources().getColor(R.color.colorGray));
-        }
-    }
-
-
+    
     /**
      * Initializes the menu in the upper right corner.
      *

@@ -97,6 +97,7 @@
     <string name="funds">Funds</string>
     <string name="transactions">Transactions</string>
 
+    <!-- array for spinner/dropdown menu -->
     <string-array name="message_array">
         <item>Message placeholder</item>
         <item>Is Collegegeld Betaald?</item>
