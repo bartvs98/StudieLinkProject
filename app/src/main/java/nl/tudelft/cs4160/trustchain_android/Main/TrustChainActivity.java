@@ -166,7 +166,10 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
         init();
         initializeMutualBlockRecycleView();
         requestChain();
+        initializeSpinner();
+    }
 
+    private void initializeSpinner(){
         text_spinner = findViewById(R.id.text_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.message_array, android.R.layout.simple_spinner_item);
@@ -175,9 +178,21 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
         text_spinner.setOnItemSelectedListener(this);
     }
 
+    /**
+     * Function required for spinner to work
+     * @param parent
+     * @param view
+     * @param pos
+     * @param id
+     */
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         selectedMessage = parent.getItemAtPosition(pos).toString();
     }
+
+    /**
+     * Function required for spinner to work
+     * @param parent
+     */
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
