@@ -18,9 +18,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -59,6 +63,8 @@ import nl.tudelft.cs4160.trustchain_android.Inbox.InboxActivity;
 import nl.tudelft.cs4160.trustchain_android.Message.MessageProto;
 
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.GENESIS_SEQ;
+
+//AdapterView.OnItemSelectedListener
 
 public class OverviewConnectionsActivity extends AppCompatActivity implements NetworkCommunicationListener, PeerListener {
 
@@ -188,6 +194,7 @@ public class OverviewConnectionsActivity extends AppCompatActivity implements Ne
         network.setNetworkCommunicationListener(this);
         network.updateConnectionType((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
         ((TextView) findViewById(R.id.peer_id)).setText(peerHandler.getHashId());
+//        textSpinner = findViewById(R.id.text_spinner);
     }
 
     public void setPeersFromSavedInstance(ArrayList<PeerAppToApp> peers) {

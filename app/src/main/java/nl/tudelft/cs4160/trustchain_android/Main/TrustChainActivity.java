@@ -21,10 +21,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,25 +64,22 @@ import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.G
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.createBlock;
 import static nl.tudelft.cs4160.trustchain_android.Block.TrustChainBlockHelper.sign;
 
-public class TrustChainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, CrawlRequestListener {
+// used implement CompoundButton.OnCheckedChangeListener
+
+public class TrustChainActivity extends AppCompatActivity implements CrawlRequestListener, AdapterView.OnItemSelectedListener {
     private final static String TAG = TrustChainActivity.class.toString();
     private Context context;
-    boolean developerMode = false;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private Network network;
     private InboxItem inboxItemOtherPeer;
     private TrustChainDBHelper DBHelper;
-    TextView externalIPText;
-    TextView localIPText;
+    private String selectedMessage;
+
     TextView statusText;
-    TextView developerModeText;
     Button sendButton;
-    EditText editTextDestinationIP;
-    EditText editTextDestinationPort;
-    EditText messageEditText;
-    SwitchCompat switchDeveloperMode;
+    Spinner text_spinner;
     LinearLayout extraInformationPanel;
     TrustChainActivity thisActivity;
     DualSecret kp;
@@ -157,7 +157,7 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_message);
         this.context = this;
         DBHelper = new TrustChainDBHelper(this);
         inboxItemOtherPeer = (InboxItem) getIntent().getSerializableExtra("inboxItem");
@@ -166,6 +166,35 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
         init();
         initializeMutualBlockRecycleView();
         requestChain();
+        initializeSpinner();
+    }
+
+    private void initializeSpinner(){
+        text_spinner = findViewById(R.id.text_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.message_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        text_spinner .setAdapter(adapter);
+        text_spinner.setOnItemSelectedListener(this);
+    }
+
+    /**
+     * Function required for spinner to work
+     * @param parent
+     * @param view
+     * @param pos
+     * @param id
+     */
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        selectedMessage = parent.getItemAtPosition(pos).toString();
+    }
+
+    /**
+     * Function required for spinner to work
+     * @param parent
+     */
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     /**
@@ -261,25 +290,15 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
     /**
      * Initialization of all variables all textfields are set
      * such as local and external ip
+     *
+     * Linking the variables with the widgets on the UI.
      */
     private void initVariables() {
         thisActivity = this;
-        localIPText = findViewById(R.id.my_local_ip);
-        externalIPText = findViewById(R.id.my_external_ip);
         statusText = findViewById(R.id.status);
         statusText.setMovementMethod(new ScrollingMovementMethod());
-
-        editTextDestinationIP = findViewById(R.id.destination_IP);
-        editTextDestinationPort = findViewById(R.id.destination_port);
-        messageEditText = findViewById(R.id.message_edit_text);
         extraInformationPanel = findViewById(R.id.extra_information_panel);
-        developerModeText = findViewById(R.id.developer_mode_text);
         mRecyclerView = findViewById(R.id.mutualBlocksRecyclerView);
-        switchDeveloperMode = findViewById(R.id.switch_developer_mode);
-        switchDeveloperMode.setOnCheckedChangeListener(this);
-        editTextDestinationIP = (EditText) findViewById(R.id.destination_IP);
-        editTextDestinationPort = (EditText) findViewById(R.id.destination_port);
-
         dbHelper = new TrustChainDBHelper(this);
     }
 
@@ -287,50 +306,7 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
      * Initialize the ip addresses and the network.
      */
     private void init() {
-        updateIP();
-        updateLocalIPField(getLocalIPAddress());
         network = Network.getInstance(getApplicationContext());
-    }
-
-    /**
-     * Updates the external IP address textfield to the given IP address.
-     */
-    public void updateExternalIPField(String ipAddress) {
-        externalIPText.setText(ipAddress);
-        Log.i(TAG, "Updated external IP Address: " + ipAddress);
-    }
-
-    /**
-     * Updates the internal IP address textfield to the given IP address.
-     */
-    public void updateLocalIPField(String ipAddress) {
-        localIPText.setText(ipAddress);
-        Log.i(TAG, "Updated local IP Address:" + ipAddress);
-    }
-
-    /**
-     * Finds the external IP address of this device by making an API call to https://www.ipify.org/.
-     * The networking runs on a separate thread.
-     */
-    public void updateIP() {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try (java.util.Scanner s = new java.util.Scanner(new java.net.URL("https://api.ipify.org").openStream(), "UTF-8").useDelimiter("\\A")) {
-                    final String ip = s.next();
-                    // new thread to handle UI updates
-                    TrustChainActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateExternalIPField(ip);
-                        }
-                    });
-                } catch (java.io.IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();
     }
 
     /**
@@ -404,11 +380,14 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
         Log.d("testLogs", "onClickSend");
 
         byte[] publicKey = Key.loadKeys(this).getPublicKeyPair().toBytes();
-        byte[] transactionData = messageEditText.getText().toString().getBytes("UTF-8");
-        final MessageProto.TrustChainBlock block = createBlock(transactionData, DBHelper, publicKey, null, ByteArrayConverter.hexStringToByteArray(inboxItemOtherPeer.getPublicKey()));
+//        byte[] transactionData = textView_message.getText().toString().getBytes("UTF-8");
+        byte[] transactionData2 = selectedMessage.getBytes("UTF-8");
+        // TODO: 11/04/2019 Revert spinner to default value after sending.
+        // TODO: 15/04/2019 Remove first value in spinner array in strings.xml. 
+        final MessageProto.TrustChainBlock block = createBlock(transactionData2, DBHelper, publicKey, null, ByteArrayConverter.hexStringToByteArray(inboxItemOtherPeer.getPublicKey()));
         final MessageProto.TrustChainBlock signedBlock = TrustChainBlockHelper.sign(block, Key.loadKeys(getApplicationContext()).getSigningKey());
-        messageEditText.setText("");
-        messageEditText.clearFocus();
+//        messageEditText.setText("");
+//        messageEditText.clearFocus();
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         // insert the half block in your own chain
@@ -427,7 +406,6 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
             }
         }).start();
     }
-
 
     /**
      * This method signs the half block when agreed with the pop-up.
@@ -466,25 +444,7 @@ public class TrustChainActivity extends AppCompatActivity implements CompoundBut
             }
         });
     }
-
-    /**
-     * Toggle developer options to connect manually to an ip.
-     * @param buttonView
-     * @param isChecked
-     */
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        developerMode = isChecked;
-        if (isChecked) {
-            extraInformationPanel.setVisibility(View.VISIBLE);
-            developerModeText.setTextColor(getResources().getColor(R.color.colorAccent));
-        } else {
-            extraInformationPanel.setVisibility(View.GONE);
-            developerModeText.setTextColor(getResources().getColor(R.color.colorGray));
-        }
-    }
-
-
+    
     /**
      * Initializes the menu in the upper right corner.
      *
