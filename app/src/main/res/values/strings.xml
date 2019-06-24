@@ -115,7 +115,7 @@
 
     <!-- array for spinner/dropdown menu -->
     <string-array name="message_array">
-        <item>Message placeholder</item>
+        <item> - Select One -</item>
         <item>Is Collegegeld Betaald?</item>
         <item>Collegegeld is Betaald.</item>
     </string-array>
