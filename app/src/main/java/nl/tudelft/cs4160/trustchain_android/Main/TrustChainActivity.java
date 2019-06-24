@@ -46,6 +46,7 @@ import nl.tudelft.cs4160.trustchain_android.Network.CrawlRequestListener;
 import nl.tudelft.cs4160.trustchain_android.Network.Network;
 import nl.tudelft.cs4160.trustchain_android.R;
 import nl.tudelft.cs4160.trustchain_android.SharedPreferences.InboxItemStorage;
+import nl.tudelft.cs4160.trustchain_android.Storage.StudentAccountStorage;
 import nl.tudelft.cs4160.trustchain_android.Util.ByteArrayConverter;
 import nl.tudelft.cs4160.trustchain_android.AppToApp.PeerAppToApp;
 import nl.tudelft.cs4160.trustchain_android.AppToApp.connection.messages.BlockMessage;
@@ -76,6 +77,7 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
     private InboxItem inboxItemOtherPeer;
     private TrustChainDBHelper DBHelper;
     private String selectedMessage;
+
 
     TextView statusText;
     Button sendButton;
@@ -205,10 +207,11 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
         findMutualBlocksTask.execute();
     }
 
+
     /**
      * Asynctask to find blocks that both the user and the other peer have in common.
      */
-    private static class FindMutualBlocksTask extends AsyncTask<Void, Void, ArrayList<MutualBlockItem>> {
+    private class FindMutualBlocksTask extends AsyncTask<Void, Void, ArrayList<MutualBlockItem>> {
         private WeakReference<TrustChainActivity> activityReference;
 
         FindMutualBlocksTask(TrustChainActivity context) {
@@ -225,6 +228,8 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
             String myPublicKeyString = ByteArrayConverter.bytesToHexString(keyPair.getPublicKeyPair().toBytes());
             String peerPublicKeyString = activity.inboxItemOtherPeer.getPublicKey();
 
+            StudentAccountStorage sas = new StudentAccountStorage(context);
+
             for (MessageProto.TrustChainBlock block : activity.DBHelper.getBlocks(keyPair.getPublicKeyPair().toBytes(), true)) {
                 String linkedPublicKey = ByteArrayConverter.bytesToHexString(block.getLinkPublicKey().toByteArray());
                 String publicKey = ByteArrayConverter.byteStringToString(block.getPublicKey());
@@ -238,6 +243,7 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
                     Log.d("Validation: ", "validation status is: " + validationResultStatus);
                     if (validationResultStatus == ValidationResult.VALID) {
                         blockStatus += "Valid block";
+                        sas.setBBC(true, R.id.prev_hash);
                     } else if (validationResultStatus == ValidationResult.PARTIAL) {
                         blockStatus += "Partial";
                     } else if (validationResultStatus == ValidationResult.NO_INFO) {

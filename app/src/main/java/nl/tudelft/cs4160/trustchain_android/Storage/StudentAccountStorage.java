@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.time.LocalDateTime;
+
 public class StudentAccountStorage extends SQLiteOpenHelper {
 
     private static final String TAG = "StudentAccountStorage";
@@ -17,6 +19,9 @@ public class StudentAccountStorage extends SQLiteOpenHelper {
     private static final String COL3 = "name";
     private static final String COL4 = "surname";
     private static final String COL5 = "age";
+    private static final String COL6 = "paid";
+    private static final String COL7 = "date";
+    private static final String COL8 = "prevHash";
 
     public StudentAccountStorage(Context context) {
         super(context, TABLE_NAME, null, 1);
@@ -30,7 +35,10 @@ public class StudentAccountStorage extends SQLiteOpenHelper {
                     COL2 + " TEXT, " +
                     COL3 + " TEXT, " +
                     COL4 + " TEXT, " +
-                    COL5 + " NUMBER" +
+                    COL5 + " NUMBER," +
+                    COL6 + " BOOLEAN DEFAULT 0," +
+                    COL7 + " TEXT," +
+                    COL8 + " NUMBER DEFAULT 0" +
                 ")";
 
         db.execSQL(sql);
@@ -41,6 +49,17 @@ public class StudentAccountStorage extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+    }
+
+    public boolean setBBC(Boolean paid, int prev_hash) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        try{
+            db.execSQL("UPDATE studentaccount SET paid ='" + paid + "', date ='" + LocalDateTime.now() + "', prevHash = " + prev_hash + " WHERE ID = 1");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public boolean insert(StudentAccount studentAccount) {

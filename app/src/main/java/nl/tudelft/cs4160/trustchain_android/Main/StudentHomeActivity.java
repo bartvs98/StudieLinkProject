@@ -203,6 +203,9 @@ public class StudentHomeActivity extends AppCompatActivity implements NetworkCom
         while(data.moveToNext()){
             ((TextView) findViewById(R.id.full_name_view)).setText(data.getString(2) + " " + data.getString(3));
             ((TextView) findViewById(R.id.age_view)).setText(data.getString(4));
+            ((TextView) findViewById(R.id.signed_to)).setText(data.getString(5));
+            ((TextView) findViewById(R.id.prev_hash)).setText(data.getString(7));
+
         }
     }
 

@@ -56,6 +56,16 @@
                     android:layout_weight="1"
                     android:text="@string/signed_to" />
             </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_weight="1"
+                    android:text="prev_hash" />
+
+                <TextView
+                    android:id="@+id/prev_hash"
+                    android:layout_weight="1"
+                    android:text="@string/signed_to" />
+            </TableRow>
 
             <TextView
                 android:layout_width="match_parent"
