@@ -51,15 +51,21 @@ public class StudentAccountStorage extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean setBBC(Boolean paid, int prev_hash) {
+    public boolean setBBC(Boolean paid, com.google.protobuf.ByteString prev_hash) {
         SQLiteDatabase db = this.getWritableDatabase();
         try{
-            db.execSQL("UPDATE studentaccount SET paid ='" + paid + "', date ='" + LocalDateTime.now() + "', prevHash = " + prev_hash + " WHERE ID = 1");
+            db.execSQL("UPDATE studentaccount SET paid ='" + paid + "', date ='" + LocalDateTime.now() + "', prevHash ='" + prev_hash + "' WHERE ID = 1");
         }
         catch (Exception e) {
             e.printStackTrace();
         }
         return true;
+    }
+
+    public Cursor getBBC() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT paid, date, prevHash FROM studentaccount WHERE ID = 1", null);
+        return data;
     }
 
     public boolean insert(StudentAccount studentAccount) {

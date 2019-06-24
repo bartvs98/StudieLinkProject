@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -176,7 +177,7 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.message_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        text_spinner .setAdapter(adapter);
+        text_spinner.setAdapter(adapter);
         text_spinner.setOnItemSelectedListener(this);
     }
 
@@ -243,7 +244,9 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
                     Log.d("Validation: ", "validation status is: " + validationResultStatus);
                     if (validationResultStatus == ValidationResult.VALID) {
                         blockStatus += "Valid block";
-                        sas.setBBC(true, R.id.prev_hash);
+                        if (block.getTransaction().toStringUtf8().equals("Is Collegegeld Betaald?")) {
+                            sas.setBBC(true, block.getPreviousHash());
+                        }
                     } else if (validationResultStatus == ValidationResult.PARTIAL) {
                         blockStatus += "Partial";
                     } else if (validationResultStatus == ValidationResult.NO_INFO) {
@@ -253,6 +256,9 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
                             blockStatus += "Half block awaiting signing";
                         } else {
                             blockStatus += "Full block not yet connected in chain";
+                            if (block.getTransaction().toStringUtf8().equals("Is Collegegeld Betaald?")) {
+                                sas.setBBC(true, block.getPreviousHash());
+                            }
                         }
 
                     } else if (validationResultStatus == ValidationResult.INVALID) {
@@ -387,7 +393,24 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
 
         byte[] publicKey = Key.loadKeys(this).getPublicKeyPair().toBytes();
 //        byte[] transactionData = textView_message.getText().toString().getBytes("UTF-8");
-        byte[] transactionData2 = selectedMessage.getBytes("UTF-8");
+        byte[] transactionData2 = "".getBytes("UTF-8");
+        if (selectedMessage.equals("Collegegeld is Betaald.")) {
+            StudentAccountStorage sas = new StudentAccountStorage(context);
+            Cursor data = sas.getBBC();
+            String paid = "";
+            String date = "";
+            String hash = "";
+            while (data.moveToNext()) {
+                paid = data.getString(0);
+                date = data.getString(1);
+                hash = data.getString(2);
+            }
+            String transaction = "Betaald: " + paid + ", Datum: " + date + ", Vorige Hash: " + hash;
+            transactionData2 = transaction.getBytes("UTF-8");
+        }
+        else {
+            transactionData2 = selectedMessage.getBytes("UTF-8");
+        }
         // TODO: 11/04/2019 Revert spinner to default value after sending.
         // TODO: 15/04/2019 Remove first value in spinner array in strings.xml. 
         final MessageProto.TrustChainBlock block = createBlock(transactionData2, DBHelper, publicKey, null, ByteArrayConverter.hexStringToByteArray(inboxItemOtherPeer.getPublicKey()));
