@@ -76,6 +76,7 @@ public class StudentHomeActivity extends AppCompatActivity implements NetworkCom
     private Network network;
     private PeerHandler peerHandler;
     private String wan = "";
+    private String name = "";
     private QRGenerator qrGenerator = new QRGenerator();
     private ImageView qrImage;
 
@@ -153,13 +154,20 @@ public class StudentHomeActivity extends AppCompatActivity implements NetworkCom
      * A genesis block is also created automatically.
      */
     private void initKey() {
+        studentAccountStorage = new StudentAccountStorage(this);
+        Cursor data = studentAccountStorage.getDataByUserName(peerHandler.getHashId());
+
+        while(data.moveToNext()) {
+            name = data.getString(2) + " " + data.getString(3);
+        }
+
         DualSecret kp = Key.loadKeys(getApplicationContext());
         if (kp == null) {
             kp = Key.createAndSaveKeys(getApplicationContext());
         }
         if (isStartedFirstTime(dbHelper, kp)) {
             MessageProto.TrustChainBlock block = TrustChainBlockHelper
-                    .createGenesisBlockWithTransaction(kp, "First transaction message");
+                    .createGenesisBlockWithTransaction(kp, name);
             dbHelper.insertInDB(block);
         }
     }
