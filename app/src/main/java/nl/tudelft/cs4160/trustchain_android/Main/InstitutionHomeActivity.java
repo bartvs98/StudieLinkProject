@@ -79,6 +79,7 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
     private Network network;
     private PeerHandler peerHandler;
     private String wan = "";
+    private String institutionName = "";
     private QRGenerator qrGenerator = new QRGenerator();
     private ImageView qrImage;
 
@@ -152,12 +153,20 @@ public class InstitutionHomeActivity extends AppCompatActivity implements Networ
      * A genesis block is also created automatically.
      */
     private void initKey() {
+        institutionAccountStorage = new InstitutionAccountStorage(this);
+        Cursor data = institutionAccountStorage.getDataByUserName(peerHandler.getHashId());
+
+        while(data.moveToNext()) {
+            institutionName = data.getString(1);
+        }
+
         DualSecret kp = Key.loadKeys(getApplicationContext());
         if (kp == null) {
             kp = Key.createAndSaveKeys(getApplicationContext());
         }
         if (isStartedFirstTime(dbHelper, kp)) {
-            MessageProto.TrustChainBlock block = TrustChainBlockHelper.createGenesisBlock(kp);
+            MessageProto.TrustChainBlock block = TrustChainBlockHelper
+                    .createGenesisBlockWithTransaction(kp, institutionName);
             dbHelper.insertInDB(block);
         }
     }
