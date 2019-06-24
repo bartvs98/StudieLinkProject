@@ -238,22 +238,30 @@ public class TrustChainActivity extends AppCompatActivity implements CrawlReques
                     Log.d("Validation: ", "validation status is: " + validationResultStatus);
                     if (validationResultStatus == ValidationResult.VALID) {
                         blockStatus += "Valid block";
+                        Boolean betaald = true;
                     } else if (validationResultStatus == ValidationResult.PARTIAL) {
                         blockStatus += "Partial";
+                        Boolean betaald = false;
                     } else if (validationResultStatus == ValidationResult.NO_INFO) {
                         blockStatus += "No Info";
+                        Boolean betaald = false;
                     } else if (validationResultStatus == ValidationResult.PARTIAL_NEXT) {
+
                         if( block.getLinkSequenceNumber() == 0){
                             blockStatus += "Half block awaiting signing";
                         } else {
-                            blockStatus += "Full block not yet connected in chain";
+                            blockStatus += "Valid block";
+                            Boolean betaald = true;
                         }
 
                     } else if (validationResultStatus == ValidationResult.INVALID) {
+                        Boolean betaald = false;
                         blockStatus += "Invalid";
                     } else if (validationResultStatus == ValidationResult.PARTIAL_PREVIOUS) {
+                        Boolean betaald = false;
                         blockStatus += "Partial previous";
                     } else {
+                        Boolean betaald = false;
                         blockStatus += "unknown status";
                     }
 
